@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="font.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shopping</a>
+                <a href="medice.html">Medicines</a>
+                <a href="groceries.html">Groceries</a>
+                <a href="orders.html">Orders</a>
+                <a href="about.html">About</a>
+                <a href="#" class="active">Cart</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <p style="padding: 15px; text-align: center;">Your wishlist is empty</p>
+                        </div>
+                        <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <p style="padding: 15px; text-align: center;">Your cart is empty</p>
+                        </div>
+                        <a href="cart.html" class="view-cart-btn">View Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Content -->
+    <div class="container">
+        <div class="cart-header">
+            <h1>Your Shopping Cart</h1>
+            <a href="shop.html" class="continue-shopping">← Continue Shopping</a>
+        </div>
+        
+        <div class="cart-container">
+            <div class="cart-items" id="cart-items-container">
+                <!-- Cart items will be loaded here -->
+            </div>
+            
+            <div class="cart-summary">
+                <h3 class="summary-title">Order Summary</h3>
+                <div class="summary-row">
+                    <span>Subtotal (<span id="summary-item-count">0</span> items)</span>
+                    <span id="subtotal">₹0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shipping">₹0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (18%)</span>
+                    <span id="tax">₹0.00</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total</span>
+                    <span id="total">₹0.00</span>
+                </div>
+                <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your trusted online pharmacy with genuine medicines and healthcare products.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shopping</a></li>
+                    <li><a href="medice.html">Medicines</a></li>
+                    <li><a href="groceries.html">Groceries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="delivery.html">Delivery Information</a></li>
+                    <li><a href="return.html">Returns Policy</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+            <p class="disclaimer">Disclaimer: This is not a real pharmacy. For demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cart-items-container');
+            
+            // Update cart and wishlist counts
+            function updateCounts() {
+                const cartCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+                
+                document.querySelector('.cart-count').textContent = cartCount;
+                document.querySelector('.wishlist-count').textContent = wishlist.length;
+            }
+            
+            // Render cart items
+            function renderCart() {
+                if (cart.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-cart">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2038/2038854.png" alt="Empty cart">
+                            <h2>Your cart is empty</h2>
+                            <p>Looks like you haven't added anything to your cart yet</p>
+                            <a href="shop.html" class="shop-now-btn">Shop Now</a>
+                        </div>
+                    `;
+                    updateCartSummary();
+                    return;
+                }
+                
+                container.innerHTML = cart.map(item => `
+                    <div class="cart-item" data-id="${item.id}">
+                        <img src="${item.image || 'https://via.placeholder.com/120x120?text=Product'}" alt="${item.name}" class="item-image">
+                        <div class="item-details">
+                            <div>
+                                <h3>${item.name}</h3>
+                                <p class="item-price">₹${item.price.toLocaleString('en-IN')}</p>
+                            </div>
+                            <div class="item-actions">
+                                <div class="quantity-selector">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" class="quantity-input" value="${item.quantity}" min="1">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                                <button class="remove-btn">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                updateCartSummary();
+            }
+            
+            // Update cart summary calculations
+            function updateCartSummary() {
+                const itemCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+                const shipping = itemCount > 0 ? 99 : 0;
+                const tax = subtotal * 0.18;
+                const total = subtotal + shipping + tax;
+                
+                // Update DOM
+                document.getElementById('summary-item-count').textContent = itemCount;
+                document.getElementById('subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+                document.getElementById('shipping').textContent = `₹${shipping.toFixed(2)}`;
+                document.getElementById('tax').textContent = `₹${tax.toFixed(2)}`;
+                document.getElementById('total').textContent = `₹${total.toFixed(2)}`;
+                updateCounts();
+            }
+            
+            // Handle quantity changes and removal
+            container.addEventListener('click', function(e) {
+                const itemElement = e.target.closest('.cart-item');
+                if (!itemElement) return;
+                
+                const itemId = itemElement.dataset.id;
+                const itemIndex = cart.findIndex(item => item.id == itemId);
+                
+                if (itemIndex === -1) return;
+                
+                if (e.target.classList.contains('minus')) {
+                    const input = itemElement.querySelector('.quantity-input');
+                    input.value = Math.max(1, parseInt(input.value) - 1);
+                    cart[itemIndex].quantity = parseInt(input.value);
+                } 
+                else if (e.target.classList.contains('plus')) {
+                    const input = itemElement.querySelector('.quantity-input');
+                    input.value = parseInt(input.value) + 1;
+                    cart[itemIndex].quantity = parseInt(input.value);
+                }
+                else if (e.target.classList.contains('remove-btn')) {
+                    cart.splice(itemIndex, 1);
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            });
+            
+            // Handle direct input changes
+            container.addEventListener('change', function(e) {
+                if (e.target.classList.contains('quantity-input')) {
+                    const itemId = e.target.closest('.cart-item').dataset.id;
+                    const itemIndex = cart.findIndex(item => item.id == itemId);
+                    
+                    if (itemIndex !== -1) {
+                        cart[itemIndex].quantity = Math.max(1, parseInt(e.target.value));
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartSummary();
+                    }
+                }
+            });
+            
+            // Make icon wrappers clickable
+            document.querySelectorAll('.icon-wrapper').forEach(wrapper => {
+                wrapper.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    
+                    const checkbox = this.querySelector('.icon-toggle');
+                    if (checkbox) {
+                        checkbox.checked = !checkbox.checked;
+                        
+                        if (checkbox.checked) {
+                            document.querySelectorAll('.icon-toggle').forEach(toggle => {
+                                if (toggle !== checkbox) {
+                                    toggle.checked = false;
+                                }
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Search functionality
+            document.getElementById('search-button').addEventListener('click', function() {
+                const searchTerm = document.getElementById('search-input').value.trim();
+                if (searchTerm) {
+                    window.location.href = `shop.html?search=${encodeURIComponent(searchTerm)}`;
+                }
+                document.getElementById('search-toggle').checked = false;
+            });
+            
+            // Allow pressing Enter in search input
+            document.getElementById('search-input').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    document.getElementById('search-button').click();
+                }
+            });
+            
+            // Initial render
+            updateCounts();
+            renderCart();
+        });
+        
+    
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart and wishlist from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            // Get toggle elements
+            const searchToggle = document.getElementById('search-toggle');
+            const wishlistToggle = document.getElementById('wishlist-toggle');
+            const cartToggle = document.getElementById('cart-toggle');
+            
+            // Update counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Initialize dropdowns if already open
+            initializeDropdowns();
+            
+            // Set up event listeners
+            setupDropdownToggleListeners();
+            
+            // Search functionality
+            setupSearch();
+    
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    cartCount.textContent = itemCount;
+                }
+            }
+    
+            function updateWishlistCount() {
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlistCount) {
+                    wishlistCount.textContent = wishlist.length;
+                }
+            }
+    
+            function initializeDropdowns() {
+                if (cartToggle.checked) displayCartItems();
+                if (wishlistToggle.checked) displayWishlistItems();
+                if (searchToggle.checked) setupSearch();
+            }
+    
+            function setupDropdownToggleListeners() {
+                // Close other dropdowns when one is opened
+                const toggles = [searchToggle, wishlistToggle, cartToggle];
+                
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            // Close other dropdowns
+                            toggles.forEach(t => {
+                                if (t !== this && t.checked) {
+                                    t.checked = false;
+                                    // Trigger change event manually if needed
+                                    t.dispatchEvent(new Event('change'));
+                                }
+                            });
+                            
+                            // Load content for the opened dropdown
+                            if (this === cartToggle) displayCartItems();
+                            else if (this === wishlistToggle) displayWishlistItems();
+                        }
+                    });
+                });
+            }
+    
+            function setupSearch() {
+                const searchButton = document.getElementById('search-button');
+                if (searchButton) {
+                    searchButton.addEventListener('click', function() {
+                        const searchTerm = document.getElementById('search-input').value.trim();
+                        if (searchTerm) {
+                            // Implement your search functionality here
+                            // For example: window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                            showToast(`Searching for: ${searchTerm}`);
+                        }
+                    });
+                    
+                    // Allow search on Enter key
+                    document.getElementById('search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            searchButton.click();
+                        }
+                    });
+                }
+            }
+    
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your cart is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                cart.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.quantity || 1} x ₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="cart" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Calculate subtotal
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                html += `
+                    <div class="dropdown-subtotal">
+                        <p>Subtotal: <strong>₹${subtotal.toFixed(2)}</strong></p>
+                    </div>
+                `;
+                html += '</div>';
+                
+                cartItemsContainer.innerHTML = html;
+    
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        displayCartItems();
+                        showToast('Item removed from cart');
+                    });
+                });
+            }
+    
+            function displayWishlistItems() {
+                const wishlistItemsContainer = document.getElementById('wishlist-items');
+                if (wishlist.length === 0) {
+                    wishlistItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your wishlist is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                wishlist.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn add-to-cart-btn" data-index="${index}" title="Add to Cart">+</button>
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                wishlistItemsContainer.innerHTML = html;
+    
+                // Add event listeners to buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        
+                        // Check if item already exists in cart
+                        const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                        
+                        if (existingItem) {
+                            existingItem.quantity = (existingItem.quantity || 1) + 1;
+                        } else {
+                            cart.push({...item, quantity: 1});
+                        }
+                        
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        showToast(`${item.name} added to cart!`);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        wishlist.splice(index, 1);
+                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        updateWishlistCount();
+                        displayWishlistItems();
+                        showToast(`${item.name} removed from wishlist`);
+                    });
+                });
+            }
+    
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.right = '20px';
+                toast.style.backgroundColor = '#4F46E5';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '4px';
+                toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                toast.style.zIndex = '10000';
+                toast.style.transition = 'all 0.3s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                toast.textContent = message;
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groceries - LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="groceries.css">
+    <link rel="stylesheet" href="font.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shopping</a>
+                <a href="medice.html">Medicines</a>
+                <a href="groceries.html" class="active">Groceries</a>
+                <a href="orders.html">Orders</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <p style="padding: 15px; text-align: center;">Your wishlist is empty</p>
+                        </div>
+                        <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <p style="padding: 15px; text-align: center;">Your cart is empty</p>
+                        </div>
+                        <a href="cart.html" class="view-cart-btn">View Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Groceries Content -->
+    <main class="groceries-container">
+        <!-- Groceries Header -->
+        <section class="groceries-header">
+            <h1>Fresh Groceries Delivered to Your Door</h1>
+            <p>Shop our wide selection of fresh fruits, vegetables, dairy, and pantry essentials with convenient home delivery</p>
+        </section>
+
+        <!-- Search Results Section (Initially hidden) -->
+        <section class="search-results" id="search-results">
+            <div class="search-results-header">
+                <h2>Search Results</h2>
+                <button class="close-search" id="close-search">&times;</button>
+            </div>
+            <div class="products-grid" id="search-results-grid">
+                <!-- Search results will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Grocery Categories -->
+        <section class="categories-section">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="categories-grid" id="categories-grid">
+                <!-- Categories will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2 class="section-title" id="products-section-title">All Groceries</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Premium quality groceries for the discerning customer. Freshness meets affordability.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shopping</a></li>
+                    <li><a href="medice.html">Medicines</a></li>
+                    <li><a href="groceries.html">Groceries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="delivery.html">Delivery Information</a></li>
+                    <li><a href="return.html">Returns Policy</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Grocery product data
+        const groceryData = {
+            categories: [
+                { id: 'all', name: 'All Groceries', icon: 'fas fa-shopping-basket' },
+                { id: 'fruits', name: 'Fruits', icon: 'fas fa-apple-alt' },
+                { id: 'vegetables', name: 'Vegetables', icon: 'fas fa-carrot' },
+                { id: 'dairy', name: 'Dairy & Eggs', icon: 'fas fa-egg' },
+                { id: 'meat', name: 'Meat & Poultry', icon: 'fas fa-drumstick-bite' },
+                { id: 'seafood', name: 'Seafood', icon: 'fas fa-fish' },
+                { id: 'bakery', name: 'Bakery', icon: 'fas fa-bread-slice' },
+                { id: 'beverages', name: 'Beverages', icon: 'fas fa-wine-bottle' },
+                { id: 'pantry', name: 'Pantry Staples', icon: 'fas fa-utensils' }
+            ],
+            
+    products: [
+        // Original products (26 items)
+        { id: 101, name: "Fresh Apples", category: "fruits", brand: "Farm Fresh", price: 120, originalPrice: 150, image: "https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?auto=format&fit=crop&q=80&w=1000", deal: "20% OFF" },
+        { id: 102, name: "Bananas (Bunch)", category: "fruits", brand: "Tropical", price: 45, originalPrice: 50, image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&q=80&w=1000" },
+        { id: 103, name: "Oranges (1kg)", category: "fruits", brand: "Citrus Valley", price: 80, originalPrice: 100, image: "https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&q=80&w=1000", deal: "20% OFF" },
+        { id: 104, name: "Grapes (500g)", category: "fruits", brand: "Vineyard Select", price: 150, originalPrice: 180, image: "https://images.unsplash.com/photo-1514843319620-4f042827c481?auto=format&fit=crop&q=80&w=1000", deal: "16% OFF" },
+        { id: 105, name: "Strawberries (250g)", category: "fruits", brand: "Berry Farms", price: 120, originalPrice: 120, image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&q=80&w=1000" },
+        { id: 106, name: "Mangoes (1kg)", category: "fruits", brand: "Tropical", price: 180, originalPrice: 200, image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?auto=format&fit=crop&q=80&w=1000", deal: "10% OFF" },
+        { id: 201, name: "Fresh Tomatoes (1kg)", category: "vegetables", brand: "Farm Fresh", price: 40, originalPrice: 50, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSK6G2yvqyJUcBK9wmpz3J5CX3G5fAl7mp_ug&s", deal: "20% OFF" },
+        { id: 202, name: "Potatoes (1kg)", category: "vegetables", brand: "Root Harvest", price: 30, originalPrice: 30, image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&q=80&w=1000" },
+        { id: 203, name: "Onions (1kg)", category: "vegetables", brand: "Root Harvest", price: 35, originalPrice: 40, image: "https://images.unsplash.com/photo-1580201092675-a0a6a6cafbb1?auto=format&fit=crop&q=80&w=1000", deal: "12% OFF" },
+        { id: 204, name: "Carrots (500g)", category: "vegetables", brand: "Farm Fresh", price: 25, originalPrice: 30, image: "https://images.unsplash.com/photo-1447175008436-054170c2e979?auto=format&fit=crop&q=80&w=1000", deal: "16% OFF" },
+        { id: 205, name: "Broccoli", category: "vegetables", brand: "Green Valley", price: 50, originalPrice: 60, image: "https://images.unsplash.com/photo-1584270354949-c26b0d5b4a0c?auto=format&fit=crop&q=80&w=1000", deal: "16% OFF" },
+        { id: 206, name: "Spinach (Bunch)", category: "vegetables", brand: "Leafy Greens", price: 20, originalPrice: 25, image: "https://images.unsplash.com/photo-1576045057995-568f588f82fb?auto=format&fit=crop&q=80&w=1000", deal: "20% OFF" },
+        { id: 301, name: "Fresh Milk (1L)", category: "dairy", brand: "DairyPure", price: 60, originalPrice: 65, image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&q=80&w=1000", deal: "7% OFF" },
+        { id: 302, name: "Eggs (Dozen)", category: "dairy", brand: "Farm Fresh", price: 90, originalPrice: 100, image: "https://images.unsplash.com/photo-1587486913049-53fc88980cfc?auto=format&fit=crop&q=80&w=1000", deal: "10% OFF" },
+        { id: 303, name: "Butter (250g)", category: "dairy", brand: "Amul", price: 50, originalPrice: 50, image: "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&q=80&w=1000" },
+        { id: 304, name: "Cheese (200g)", category: "dairy", brand: "Britannia", price: 120, originalPrice: 140, image: "https://cheesemaking.com/cdn/shop/products/cheddar-cheese-making-recipe-299317.jpg?v=1739766226", deal: "14% OFF" },
+        { id: 305, name: "Yogurt (500g)", category: "dairy", brand: "Nestle", price: 45, originalPrice: 50, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2XmKexK112MB3QpiZ99kmDeXd8tdNLUHkxw&s", deal: "10% OFF" },
+        { id: 306, name: "Paneer (200g)", category: "dairy", brand: "Amul", price: 80, originalPrice: 90, image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&q=80&w=1000", deal: "11% OFF" },
+        { id: 401, name: "Chicken Breast (500g)", category: "meat", brand: "Fresh Poultry", price: 180, originalPrice: 200, image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143?auto=format&fit=crop&q=80&w=1000", deal: "10% OFF" },
+        { id: 402, name: "Mutton (1kg)", category: "meat", brand: "Premium Meats", price: 600, originalPrice: 650, image: "https://www.freshtohome.com/blog/wp-content/uploads/2024/08/goat-curry-cut.jpg", deal: "7% OFF" },
+        { id: 403, name: "Pork Chops (500g)", category: "meat", brand: "Farm Fresh", price: 350, originalPrice: 380, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQr0RkQKix3Pj6ClGUzizUKbhVTjPaaUUsybA&s", deal: "8% OFF" },
+        { id: 501, name: "Salmon Fillet (500g)", category: "seafood", brand: "Ocean Fresh", price: 800, originalPrice: 850, image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=1000", deal: "6% OFF" },
+        { id: 502, name: "Prawns (500g)", category: "seafood", brand: "Coastal Catch", price: 450, originalPrice: 500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMtkGAPeoYTVCjFz6Y_IBcxnsDu1qOpWMgNQ&s", deal: "10% OFF" },
+        { id: 601, name: "Whole Wheat Bread", category: "bakery", brand: "Bakery Fresh", price: 50, originalPrice: 55, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1000", deal: "9% OFF" },
+        { id: 602, name: "Croissants (Pack of 4)", category: "bakery", brand: "French Bakery", price: 120, originalPrice: 140, image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=1000", deal: "14% OFF" },
+        { id: 701, name: "Mineral Water (1L)", category: "beverages", brand: "Aqua Pure", price: 20, originalPrice: 25, image: "https://livpure.com/cdn/shop/articles/List-of-Factors-to-Take-Into-Account-When-Buying-a-Water-Purifier-1_981aaa83-c91d-4417-bfe4-e8af5032c2b2-563825.png?v=1726726245&width=1100", deal: "20% OFF" },
+        { id: 702, name: "Orange Juice (1L)", category: "beverages", brand: "Tropicana", price: 90, originalPrice: 100, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTw61-wMn3buefPQwr5H7X6T5f6dtF28wCn9w&s", deal: "10% OFF" },
+        { id: 801, name: "Basmati Rice (5kg)", category: "pantry", brand: "India Gate", price: 450, originalPrice: 500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoLub6DxTjvcl5tcKVFRDTt8lCtiDZyz6SGw&s", deal: "10% OFF" },
+        { id: 802, name: "Wheat Flour (5kg)", category: "pantry", brand: "Aashirvaad", price: 220, originalPrice: 250, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIQ787CzrgI8k_zT7Kk3yLGNG86QNTpenKdQ&s", deal: "12% OFF" },
+
+        // Additional products (40 items)
+        { id: 107, name: "Pears (1kg)", category: "fruits", brand: "Orchard Fresh", price: 130, originalPrice: 150, image: "https://i0.wp.com/images-prod.healthline.com/hlcmsresource/images/AN_images/benefits-of-pears-1296x728-feature.jpg?w=1155&h=1528", deal: "13% OFF" },
+        { id: 108, name: "Pineapple (1pc)", category: "fruits", brand: "Tropical", price: 70, originalPrice: 80, image: "https://images.unsplash.com/photo-1550258987-190a2d41a8ba", deal: "12% OFF" },
+        { id: 109, name: "Kiwi (Pack of 4)", category: "fruits", brand: "Exotic Fruits", price: 100, originalPrice: 120, image: "https://images.unsplash.com/photo-1559181567-c3190ca9959b", deal: "16% OFF" },
+        { id: 110, name: "Watermelon (1pc)", category: "fruits", brand: "Summer Fresh", price: 150, originalPrice: 180, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScO9_8zAQ6rP_hbHUaN-4O45qiYL5_PyMO6A&s", deal: "16% OFF" },
+        { id: 207, name: "Cucumber (1kg)", category: "vegetables", brand: "Farm Fresh", price: 25, originalPrice: 30, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRzy22KHnpyRPvi93fEaCu1-EqcxbcYIMf7dQ&s", deal: "16% OFF" },
+        { id: 208, name: "Bell Peppers (3pc)", category: "vegetables", brand: "Colorful Harvest", price: 60, originalPrice: 75, image: "https://cdn.cdnparenting.com/articles/2021/08/06121609/732301561.webp", deal: "20% OFF" },
+        { id: 209, name: "Cauliflower", category: "vegetables", brand: "Farm Fresh", price: 40, originalPrice: 50, image: "https://i0.wp.com/post.healthline.com/wp-content/uploads/2020/02/broccoli-cauliflower-1296x728-header.jpg?w=1155&h=1528", deal: "20% OFF" },
+        { id: 210, name: "Green Beans (250g)", category: "vegetables", brand: "Leafy Greens", price: 35, originalPrice: 40, image: "https://images.unsplash.com/photo-1604977047416-8e6d6ee45445", deal: "12% OFF" },
+        { id: 307, name: "Whipped Cream (200g)", category: "dairy", brand: "DairyPure", price: 80, originalPrice: 90, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxPlWJyjKJf5Ah08_Nd5lVNgrPaHqpM5x5bA&s", deal: "11% OFF" },
+        { id: 308, name: "Condensed Milk (400g)", category: "dairy", brand: "Nestle", price: 65, originalPrice: 70, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ52YsDfQnEzXopOQLIZ7pmx5YlYrQfq7-mSQ&s", deal: "7% OFF" },
+        { id: 309, name: "Sour Cream (200g)", category: "dairy", brand: "DairyPure", price: 55, originalPrice: 60, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRngWQGkZDPN4wH69TI2gcME2FcG3eWRccYRA&s", deal: "8% OFF" },
+        { id: 310, name: "Mozzarella Cheese (200g)", category: "dairy", brand: "Britannia", price: 150, originalPrice: 170, image: "https://cheesemaking.com/cdn/shop/products/cheddar-cheese-making-recipe-299317.jpg", deal: "11% OFF" },
+        { id: 404, name: "Chicken Thighs (500g)", category: "meat", brand: "Fresh Poultry", price: 160, originalPrice: 180, image: "https://images.unsplash.com/photo-1603360946369-dc9bb6258143", deal: "11% OFF" },
+        { id: 405, name: "Beef Steak (500g)", category: "meat", brand: "Premium Meats", price: 450, originalPrice: 500, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHo27Xsw_pHnNK3aQNf81FMHSTUZ-WFZwtUQ&s", deal: "10% OFF" },
+        { id: 406, name: "Turkey Breast (500g)", category: "meat", brand: "Fresh Poultry", price: 300, originalPrice: 330, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPcIG3z4HfNG5RoOjrrbWwK-kJ0qPwM0kUxg&s", deal: "9% OFF" },
+        { id: 407, name: "Duck (1kg)", category: "meat", brand: "Premium Meats", price: 500, originalPrice: 550, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMU_Z5duUEX0Gh3Cc441N-pUYoXfAOD-tjaQ&s", deal: "9% OFF" },
+        { id: 503, name: "Tuna Steak (500g)", category: "seafood", brand: "Ocean Fresh", price: 600, originalPrice: 650, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYI63yIYaT-EcBWFptQid0OeJog2SeNqLCWA&s", deal: "7% OFF" },
+        { id: 504, name: "Crab (1kg)", category: "seafood", brand: "Coastal Catch", price: 700, originalPrice: 750, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoI8PQPshebajMP4eTme294-hxhdUVdE9xAQ&s", deal: "6% OFF" },
+        { id: 505, name: "Squid (500g)", category: "seafood", brand: "Ocean Fresh", price: 350, originalPrice: 380, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2Ijx28D2FrW3XyjpGaGsidAoh0S1OFK0Xbw&s", deal: "8% OFF" },
+        { id: 506, name: "Mussels (500g)", category: "seafood", brand: "Coastal Catch", price: 250, originalPrice: 280, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaw6--LF1j7Qykf5DT3Fp4aTOP9eEI60nT4g&s", deal: "10% OFF" },
+        { id: 603, name: "Baguette", category: "bakery", brand: "French Bakery", price: 60, originalPrice: 70, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ068ZJy3ew9KeiBtjaRmff3AWPHJC9Et7LQA&s", deal: "14% OFF" },
+        { id: 604, name: "Donuts (Pack of 6)", category: "bakery", brand: "Sweet Treats", price: 150, originalPrice: 180, image: "https://content.jdmagicbox.com/v2/comp/hyderabad/s9/040pxx40.xx40.230207180652.d6s9/catalogue/d-4-donut-ashok-nagar-hyderabad-donut-retailers-rob3qngkyh.jpg", deal: "16% OFF" },
+        { id: 605, name: "Muffins (Pack of 4)", category: "bakery", brand: "Sweet Treats", price: 120, originalPrice: 140, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNXPXAAh4l_VUi6lpzHmJZ0wt9EWJsLalynA&s", deal: "14% OFF" },
+        { id: 606, name: "Bagels (Pack of 4)", category: "bakery", brand: "Bakery Fresh", price: 80, originalPrice: 90, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSthdLJiuBQsr3Zt0THXKTtmQXhQavdh1siYQ&s", deal: "11% OFF" },
+        { id: 703, name: "Apple Juice (1L)", category: "beverages", brand: "Tropicana", price: 85, originalPrice: 95, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMp72kv4C0cj4b4DG_a5-ZTjqnHozgugsWfw&s", deal: "10% OFF" },
+        { id: 704, name: "Coconut Water (1L)", category: "beverages", brand: "Tropicana", price: 70, originalPrice: 80, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAnfNqVKpE95pglr4xY50QevkbcyEyG7EFeQ&s", deal: "12% OFF" },
+        { id: 705, name: "Iced Tea (1L)", category: "beverages", brand: "Nestea", price: 60, originalPrice: 65, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0IkHzuzSK40qgQLeQowg4CcjqjPPx7DMCUg&s", deal: "7% OFF" },
+        { id: 706, name: "Soda (2L)", category: "beverages", brand: "Cola", price: 50, originalPrice: 55, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQLuBZ5JAZyxmv7K4lRB0t6WoKabpx7jL1pw&s", deal: "9% OFF" },
+        { id: 803, name: "Pasta (500g)", category: "pantry", brand: "Italian", price: 80, originalPrice: 90, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoLub6DxTjvcl5tcKVFRDTt8lCtiDZyz6SGw&s", deal: "11% OFF" },
+        { id: 804, name: "Olive Oil (1L)", category: "pantry", brand: "Mediterranean", price: 300, originalPrice: 350, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPw7wDs7W_jLyAhLeA4RaMWu-IFOfjN8TUsA&s", deal: "14% OFF" },
+        { id: 805, name: "Sugar (1kg)", category: "pantry", brand: "Sweetness", price: 40, originalPrice: 45, image: "https://static.toiimg.com/thumb/msid-108469108,width-1280,height-720,resizemode-4/108469108.jpg", deal: "11% OFF" },
+        { id: 806, name: "Salt (1kg)", category: "pantry", brand: "Oceanic", price: 20, originalPrice: 25, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOrTSwSKJjYJr71bfMQhi9tft05YYOHkHKKA&s", deal: "20% OFF" },
+        { id: 901, name: "Dark Chocolate (100g)", category: "snacks", brand: "ChocoLux", price: 120, originalPrice: 150, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP5aw27nP2ZO6EjKqruFN_74-pT5OlHZhk9A&s", deal: "20% OFF" },
+        { id: 902, name: "Potato Chips (150g)", category: "snacks", brand: "Crunchy", price: 50, originalPrice: 60, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzFzymzZckqUfNCaNmJ3mAFR6t9uFPXwDRVA&s", deal: "16% OFF" },
+        { id: 903, name: "Cookies (250g)", category: "snacks", brand: "Sweet Treats", price: 80, originalPrice: 90, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW0llahuYliJ9L8ofJ9dOcH6lsS95FzPZAVg&s", deal: "11% OFF" },
+        { id: 904, name: "Nuts Mix (200g)", category: "snacks", brand: "Healthy Crunch", price: 150, originalPrice: 180, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-x4Ru_rO5BqHZMUG-VQYjtGu4X8IQTMaRw&s", deal: "16% OFF" }
+    ]
+}
+
+        // Global variables
+        let currentCategory = 'all';
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        // Function to create category card HTML
+        function createCategoryCard(category) {
+            const isActive = category.id === currentCategory;
+            return `
+                <a href="#" class="category-card ${isActive ? 'active' : ''}" data-category="${category.id}">
+                    <div class="category-icon">
+                        <i class="${category.icon}"></i>
+                    </div>
+                    <h3>${category.name}</h3>
+                </a>
+            `;
+        }
+
+        // Function to create product card HTML
+        function createProductCard(product) {
+            return `
+                <div class="product-card" data-category="${product.category}" data-price="${product.price}" data-brand="${product.brand}">
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}">
+                        ${product.deal ? `<span class="deal-badge">${product.deal}</span>` : ''}
+                        <button class="add-to-wishlist" data-product-id="${product.id}">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <p class="brand">${product.brand}</p>
+                        <p class="price">₹${product.price.toLocaleString('en-IN')}
+                            ${product.originalPrice ? `<span class="original">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+                        </p>
+                        <button class="add-to-cart" data-product-id="${product.id}">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Function to filter products by category
+        function filterProductsByCategory(categoryId) {
+            if (categoryId === 'all') {
+                return groceryData.products;
+            }
+            return groceryData.products.filter(product => product.category === categoryId);
+        }
+
+        // Function to display products
+        function displayProducts(products) {
+            const productsGrid = document.getElementById('products-grid');
+            productsGrid.innerHTML = products.map(createProductCard).join('');
+            
+            // Update section title
+            const category = groceryData.categories.find(c => c.id === currentCategory);
+            document.getElementById('products-section-title').textContent = category ? category.name : 'All Groceries';
+        }
+
+        // Function to display search results
+        function displaySearchResults(products, searchTerm) {
+            const searchResults = document.getElementById('search-results');
+            const searchResultsGrid = document.getElementById('search-results-grid');
+            
+            if (products.length === 0) {
+                searchResultsGrid.innerHTML = '<p>No products found matching "' + searchTerm + '"</p>';
+            } else {
+                searchResultsGrid.innerHTML = products.map(createProductCard).join('');
+            }
+            
+            searchResults.classList.add('active');
+        }
+
+        // Function to update cart count
+        function updateCartCount() {
+            const cartCount = document.querySelector('.cart-count');
+            
+            if (cartCount) {
+                cartCount.textContent = cart.length;
+            } else {
+                // Create cart count badge if it doesn't exist
+                const cartIcon = document.querySelector('.cart-icon');
+                if (cartIcon) {
+                    const countBadge = document.createElement('span');
+                    countBadge.className = 'cart-count';
+                    countBadge.textContent = cart.length;
+                    cartIcon.appendChild(countBadge);
+                }
+            }
+            
+            // Update cart dropdown
+            updateCartDropdown();
+        }
+
+        // Function to update wishlist count
+        function updateWishlistCount() {
+            const wishlistCount = document.querySelector('.wishlist-count');
+            
+            if (wishlistCount) {
+                wishlistCount.textContent = wishlist.length;
+            } else {
+                // Create wishlist count badge if it doesn't exist
+                const wishlistIcon = document.querySelector('.heart-icon');
+                if (wishlistIcon) {
+                    const countBadge = document.createElement('span');
+                    countBadge.className = 'wishlist-count';
+                    countBadge.textContent = wishlist.length;
+                    wishlistIcon.appendChild(countBadge);
+                }
+            }
+            
+            // Update wishlist dropdown
+            updateWishlistDropdown();
+        }
+
+        // Function to update cart dropdown
+        function updateCartDropdown() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+                return;
+            }
+            
+            let html = '<ul>';
+            cart.slice(0, 3).forEach((item, index) => {
+                html += `
+                    <li>
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <p>${item.name}</p>
+                            <p>₹${item.price.toLocaleString('en-IN')} × ${item.quantity || 1}</p>
+                        </div>
+                        <button class="remove-item" data-index="${index}" data-type="cart">×</button>
+                    </li>
+                `;
+            });
+            
+            if (cart.length > 3) {
+                html += `<li>+ ${cart.length - 3} more items</li>`;
+            }
+            
+            html += '</ul>';
+            const total = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+            html += `<p class="cart-total">Total: ₹${total.toLocaleString('en-IN')}</p>`;
+            cartItemsContainer.innerHTML = html;
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item[data-type="cart"]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const index = parseInt(button.getAttribute('data-index'));
+                    removeFromCart(index);
+                });
+            });
+        }
+
+        // Function to update wishlist dropdown
+        function updateWishlistDropdown() {
+            const wishlistItemsContainer = document.getElementById('wishlist-items');
+            
+            if (wishlist.length === 0) {
+                wishlistItemsContainer.innerHTML = '<p>Your wishlist is empty</p>';
+                return;
+            }
+            
+            let html = '<ul>';
+            wishlist.slice(0, 3).forEach((item, index) => {
+                html += `
+                    <li>
+                        <img src="${item.image}" alt="${item.name}">
+                        <div>
+                            <p>${item.name}</p>
+                            <p>₹${item.price.toLocaleString('en-IN')}</p>
+                        </div>
+                        <button class="remove-item" data-index="${index}" data-type="wishlist">×</button>
+                    </li>
+                `;
+            });
+            
+            if (wishlist.length > 3) {
+                html += `<li>+ ${wishlist.length - 3} more items</li>`;
+            }
+            
+            html += '</ul>';
+            wishlistItemsContainer.innerHTML = html;
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-item[data-type="wishlist"]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const index = parseInt(button.getAttribute('data-index'));
+                    removeFromWishlist(index);
+                });
+            });
+        }
+
+        // Function to add product to cart
+        function addToCart(productId) {
+            const product = groceryData.products.find(p => p.id == productId);
+            if (!product) return;
+            
+            // Check if product is already in cart
+            const existingItem = cart.find(item => item.id == productId);
+            
+            if (existingItem) {
+                existingItem.quantity = (existingItem.quantity || 1) + 1;
+            } else {
+                const productToAdd = {...product, quantity: 1};
+                cart.push(productToAdd);
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            
+            // Show notification
+            showNotification(`${product.name} added to cart`);
+        }
+
+        // Function to add product to wishlist
+        function addToWishlist(productId) {
+            const product = groceryData.products.find(p => p.id == productId);
+            if (!product) return;
+            
+            // Check if product is already in wishlist
+            const existingItem = wishlist.find(item => item.id == productId);
+            
+            if (!existingItem) {
+                wishlist.push(product);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlistCount();
+                
+                // Show notification
+                showNotification(`${product.name} added to wishlist`);
+            } else {
+                showNotification(`${product.name} is already in your wishlist`);
+            }
+        }
+
+        // Function to remove from wishlist
+        function removeFromWishlist(index) {
+            if (index >= 0 && index < wishlist.length) {
+                wishlist.splice(index, 1);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlistCount();
+                updateWishlistDropdown();
+                showNotification('Item removed from wishlist');
+            }
+        }
+
+        // Function to remove from cart
+        function removeFromCart(index) {
+            if (index >= 0 && index < cart.length) {
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                updateCartDropdown();
+                showNotification('Item removed from cart');
+            }
+        }
+
+        // Function to show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 10);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load categories
+            document.getElementById('categories-grid').innerHTML = groceryData.categories.map(createCategoryCard).join('');
+            
+            // Load initial products
+            displayProducts(filterProductsByCategory(currentCategory));
+            
+            // Initialize cart and wishlist counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Category click handler
+            document.getElementById('categories-grid').addEventListener('click', (e) => {
+                const categoryCard = e.target.closest('.category-card');
+                if (categoryCard) {
+                    e.preventDefault();
+                    currentCategory = categoryCard.getAttribute('data-category');
+                    
+                    // Update active state
+                    document.querySelectorAll('.category-card').forEach(card => {
+                        card.classList.remove('active');
+                    });
+                    categoryCard.classList.add('active');
+                    
+                    // Display products for selected category
+                    displayProducts(filterProductsByCategory(currentCategory));
+                    
+                    // Scroll to products section
+                    document.getElementById('products-section-title').scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            
+            // Add to Cart listener
+            document.addEventListener('click', (e) => {
+                if (e.target.closest('.add-to-cart')) {
+                    const productId = e.target.closest('.add-to-cart').getAttribute('data-product-id');
+                    addToCart(productId);
+                }
+                
+                if (e.target.closest('.add-to-wishlist') || e.target.classList.contains('fa-heart')) {
+                    const productId = e.target.closest('.add-to-wishlist').getAttribute('data-product-id');
+                    addToWishlist(productId);
+                }
+            });
+            
+            // Search functionality
+            document.getElementById('search-button').addEventListener('click', () => {
+                const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+                if (!searchTerm) return;
+                
+                // Search across all products
+                const results = groceryData.products.filter(product => 
+                    product.name.toLowerCase().includes(searchTerm) || 
+                    product.brand.toLowerCase().includes(searchTerm) ||
+                    product.category.toLowerCase().includes(searchTerm)
+                );
+                
+                displaySearchResults(results, searchTerm);
+                
+                // Close search dropdown
+                document.getElementById('search-toggle').checked = false;
+                
+                // Clear search input
+                document.getElementById('search-input').value = '';
+            });
+            
+            // Close search results
+            document.getElementById('close-search').addEventListener('click', () => {
+                document.getElementById('search-results').classList.remove('active');
+            });
+            
+            // Allow pressing Enter in search input
+            document.getElementById('search-input').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    document.getElementById('search-button').click();
+                }
+            });
+        });
+        
+    
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart and wishlist from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            // Get toggle elements
+            const searchToggle = document.getElementById('search-toggle');
+            const wishlistToggle = document.getElementById('wishlist-toggle');
+            const cartToggle = document.getElementById('cart-toggle');
+            
+            // Update counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Initialize dropdowns if already open
+            initializeDropdowns();
+            
+            // Set up event listeners
+            setupDropdownToggleListeners();
+            
+            // Search functionality
+            setupSearch();
+    
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    cartCount.textContent = itemCount;
+                }
+            }
+    
+            function updateWishlistCount() {
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlistCount) {
+                    wishlistCount.textContent = wishlist.length;
+                }
+            }
+    
+            function initializeDropdowns() {
+                if (cartToggle.checked) displayCartItems();
+                if (wishlistToggle.checked) displayWishlistItems();
+                if (searchToggle.checked) setupSearch();
+            }
+    
+            function setupDropdownToggleListeners() {
+                // Close other dropdowns when one is opened
+                const toggles = [searchToggle, wishlistToggle, cartToggle];
+                
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            // Close other dropdowns
+                            toggles.forEach(t => {
+                                if (t !== this && t.checked) {
+                                    t.checked = false;
+                                    // Trigger change event manually if needed
+                                    t.dispatchEvent(new Event('change'));
+                                }
+                            });
+                            
+                            // Load content for the opened dropdown
+                            if (this === cartToggle) displayCartItems();
+                            else if (this === wishlistToggle) displayWishlistItems();
+                        }
+                    });
+                });
+            }
+    
+            function setupSearch() {
+                const searchButton = document.getElementById('search-button');
+                if (searchButton) {
+                    searchButton.addEventListener('click', function() {
+                        const searchTerm = document.getElementById('search-input').value.trim();
+                        if (searchTerm) {
+                            // Implement your search functionality here
+                            // For example: window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                            showToast(`Searching for: ${searchTerm}`);
+                        }
+                    });
+                    
+                    // Allow search on Enter key
+                    document.getElementById('search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            searchButton.click();
+                        }
+                    });
+                }
+            }
+    
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your cart is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                cart.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.quantity || 1} x ₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="cart" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Calculate subtotal
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                html += `
+                    <div class="dropdown-subtotal">
+                        <p>Subtotal: <strong>₹${subtotal.toFixed(2)}</strong></p>
+                    </div>
+                `;
+                html += '</div>';
+                
+                cartItemsContainer.innerHTML = html;
+    
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        displayCartItems();
+                        showToast('Item removed from cart');
+                    });
+                });
+            }
+    
+            function displayWishlistItems() {
+                const wishlistItemsContainer = document.getElementById('wishlist-items');
+                if (wishlist.length === 0) {
+                    wishlistItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your wishlist is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                wishlist.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn add-to-cart-btn" data-index="${index}" title="Add to Cart">+</button>
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                wishlistItemsContainer.innerHTML = html;
+    
+                // Add event listeners to buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        
+                        // Check if item already exists in cart
+                        const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                        
+                        if (existingItem) {
+                            existingItem.quantity = (existingItem.quantity || 1) + 1;
+                        } else {
+                            cart.push({...item, quantity: 1});
+                        }
+                        
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        showToast(`${item.name} added to cart!`);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        wishlist.splice(index, 1);
+                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        updateWishlistCount();
+                        displayWishlistItems();
+                        showToast(`${item.name} removed from wishlist`);
+                    });
+                });
+            }
+    
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.right = '20px';
+                toast.style.backgroundColor = '#4F46E5';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '4px';
+                toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                toast.style.zIndex = '10000';
+                toast.style.transition = 'all 0.3s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                toast.textContent = message;
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+
+    </script>
+</body>
+</html>

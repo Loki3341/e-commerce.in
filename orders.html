@@ -1,0 +1,1676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmed - LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="orders.css">
+    <link rel="stylesheet" href="font.css">
+    <style>
+         /* Additional styles for empty state */
+        .empty-orders {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        .empty-orders i {
+            font-size: 48px;
+            color: #ddd;
+            margin-bottom: 15px;
+        }
+        /* Additional styles for all orders section */
+        .all-orders-container {
+            margin-top: 40px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 25px;
+        }
+        
+        .all-orders-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .order-history-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .order-history-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .order-history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .order-history-id {
+            font-weight: bold;
+            color: #4F46E5;
+        }
+        
+        .order-history-date {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .order-history-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .status-processing {
+            background-color: #FFFBEB;
+            color: #D97706;
+        }
+        
+        .status-shipped {
+            background-color: #ECFDF5;
+            color: #059669;
+        }
+        
+        .status-delivered {
+            background-color: #EFF6FF;
+            color: #2563EB;
+        }
+        
+        .status-cancelled {
+            background-color: #FEF2F2;
+            color: #DC2626;
+        }
+        
+        .order-history-products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .order-history-product {
+            display: flex;
+            align-items: center;
+            width: calc(50% - 15px);
+            padding: 10px;
+            border: 1px solid #f5f5f5;
+            border-radius: 6px;
+        }
+        
+        .order-history-product-img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+        }
+        
+        .order-history-product-info {
+            flex-grow: 1;
+        }
+        
+        .order-history-product-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .order-history-product-price {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .order-history-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .order-history-total {
+            font-weight: bold;
+        }
+        
+        .order-history-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-cancel {
+            background-color: #FEE2E2;
+            color: #B91C1C;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-cancel:hover {
+            background-color: #FECACA;
+        }
+        
+        .btn-view {
+            background-color: #E0E7FF;
+            color: #4F46E5;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .btn-view:hover {
+            background-color: #C7D2FE;
+        }
+        
+        @media (max-width: 768px) {
+            .order-history-product {
+                width: 100%;
+            }
+            
+            .order-history-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .order-history-actions {
+                width: 100%;
+                justify-content: flex-end;
+                margin-top: 10px;
+            }
+        }
+        .order-history-status.processing {
+    background-color: #FFFBEB;
+    color: #D97706;
+}
+
+.order-history-status.shipped {
+    background-color: #ECFDF5;
+    color: #059669;
+}
+
+.order-history-status.delivered {
+    background-color: #EFF6FF;
+    color: #2563EB;
+}
+
+.order-history-status.cancelled {
+    background-color: #FEF2F2;
+    color: #DC2626;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shopping</a>
+                <!-- <a href="medicines.html">Medicines</a>
+                <a href="groceries.html">Groceries</a> -->
+                <a href="about.html">About</a>
+                <a href="index.html" class="active">Orders</a>
+                <a href="#" class="active">Order---Confirmed!</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <p style="padding: 15px; text-align: center;">Your wishlist is empty</p>
+                        </div>
+                        <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <p style="padding: 15px; text-align: center;">Your cart is empty</p>
+                        </div>
+                        <a href="cart.html" class="view-cart-btn">View Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Order Confirmation Content -->
+    <main class="confirmation-container">
+        <div class="confirmation-header">
+            <div class="confirmation-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1>Order Confirmed!</h1>
+            <p class="confirmation-message">Thank you for your purchase. Your order has been placed successfully.</p>
+            <p class="order-number">Order #<span id="order-id">LM12345678</span></p>
+        </div>
+        
+        <div class="order-grid">
+            <!-- Left Column - Order Details -->
+            <div>
+                <div class="order-card">
+                    <h2 class="card-title"><i class="fas fa-box-open"></i> Order Details</h2>
+                    
+                    <div class="order-items" id="ordered-items">
+                        <!-- Ordered items will be loaded here -->
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-truck"></i> Shipping Information</h3>
+                        <div class="info-item">
+                            <div class="info-label">Name</div>
+                            <div class="info-value" id="shipping-name">John Doe</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Address</div>
+                            <div class="info-value" id="shipping-address">123 Main Street, Apt 4B</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label"></div>
+                            <div class="info-value" id="shipping-city">Mumbai, Maharashtra 400001</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Phone</div>
+                            <div class="info-value" id="shipping-phone">+91 98765 43210</div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h3><i class="fas fa-credit-card"></i> Payment Information</h3>
+                        <div class="info-item">
+                            <div class="info-label">Method</div>
+                            <div class="info-value" id="payment-method">Credit Card (•••• •••• •••• 4242)</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Date</div>
+                            <div class="info-value" id="order-date">June 15, 2023 at 2:30 PM</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Status</div>
+                            <div class="info-value" id="payment-status">Completed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Column - Timeline and Summary -->
+            <div>
+                <div class="order-card">
+                    <h2 class="card-title"><i class="fas fa-clipboard-list"></i> Order Summary</h2>
+                    
+                    <div class="order-totals">
+                        <div class="order-total-row">
+                            <span>Subtotal</span>
+                            <span id="order-subtotal">₹0.00</span>
+                        </div>
+                        <div class="order-total-row">
+                            <span>Shipping</span>
+                            <span id="order-shipping">₹99.00</span>
+                        </div>
+                        <div class="order-total-row">
+                            <span>Tax (18%)</span>
+                            <span id="order-tax">₹0.00</span>
+                        </div>
+                        <div class="order-total-row order-total">
+                            <span>Total</span>
+                            <span id="order-total">₹0.00</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NEW ORDER STATUS CARD DESIGN -->
+                <div class="status-card">
+                    <div class="status-header">
+                        <div class="status-title">
+                            <i class="fas fa-shipping-fast"></i> Delivery Status
+                        </div>
+                        <div class="status-badge status-processing">
+                            <i class="fas fa-circle-notch fa-spin"></i> Processing
+                        </div>
+                    </div>
+                    
+                    <div class="status-steps">
+                        <!-- Order Placed -->
+                        <div class="status-step completed">
+                            <div class="step-icon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="step-label">Order Placed</div>
+                            <div class="step-date" id="step-1-date">Today, 2:30 PM</div>
+                        </div>
+                        
+                        <!-- Processing -->
+                        <div class="status-step active">
+                            <div class="step-icon">
+                                <i class="fas fa-cog fa-spin"></i>
+                            </div>
+                            <div class="step-label">Processing</div>
+                            <div class="step-date" id="step-2-date">Today, EOD</div>
+                        </div>
+                        
+                        <!-- Shipped -->
+                        <div class="status-step">
+                            <div class="step-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="step-label">Shipped</div>
+                            <div class="step-date" id="step-3-date">Tomorrow</div>
+                        </div>
+                        
+                        <!-- Out for Delivery -->
+                        <div class="status-step">
+                            <div class="step-icon">
+                                <i class="fas fa-shipping-fast"></i>
+                            </div>
+                            <div class="step-label">Out for Delivery</div>
+                            <div class="step-date" id="step-4-date">June 18</div>
+                        </div>
+                        
+                        <!-- Delivered -->
+                        <div class="status-step">
+                            <div class="step-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <div class="step-label">Delivered</div>
+                            <div class="step-date" id="step-5-date">June 18</div>
+                        </div>
+                    </div>
+                    
+                    <div class="status-details">
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="detail-content">
+                                <div class="detail-title">Current Status</div>
+                                <div class="detail-text">Your order is being processed and will be shipped soon</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <div class="detail-content">
+                                <div class="detail-title">Estimated Delivery</div>
+                                <div class="detail-text" id="estimated-delivery-text">June 18, 2023 (3 business days)</div>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="detail-content">
+                                <div class="detail-title">Delivery Address</div>
+                                <div class="detail-text" id="delivery-address-text">123 Main Street, Mumbai, Maharashtra 400001</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="shop.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-left"></i> Continue Shopping
+                    </a>
+                    <a href="#" class="btn btn-primary" id="track-order-btn">
+                        <i class="fas fa-map-marked-alt"></i> Track Order
+                    </a>
+                    <a href="#" class="btn btn-download" id="download-receipt-btn">
+                        <i class="fas fa-download"></i> Download Receipt
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- All Orders Section -->
+        <div class="all-orders-container">
+            <h2 class="all-orders-title">Your Order History</h2>
+            <div id="all-orders-list">
+                <!-- All orders will be loaded here -->
+            </div>
+        </div>
+    </main>
+
+   <!-- Footer -->
+   <footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>About Us</h3>
+            <p>Your trusted online pharmacy with genuine medicines and healthcare products.</p>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="medice.html">Medicines</a></li>
+                <li><a href="groceries.html">Groceries</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Customer Service</h3>
+            <ul>
+                <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a href="delivery.html">Delivery Information</a></li>
+                <li><a href="return.html">Returns Policy</a></li>
+                <li><a href="faqs.html">FAQs</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-section">
+            <h3>Connect With Us</h3>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="payment-methods">
+                <i class="fab fa-cc-visa" title="Visa"></i>
+                <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                <i class="fab fa-cc-amex" title="American Express"></i>
+                <i class="fab fa-cc-paypal" title="PayPal"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer-bottom">
+        <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+        <p class="disclaimer">Disclaimer: This is not a real pharmacy. For demonstration purposes only.</p>
+    </div>
+</footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get order details from localStorage
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
+            const cart = orderDetails.cart || [];
+            
+            // Display order information
+            document.getElementById('order-id').textContent = orderDetails.orderNumber || 'LM' + Math.floor(Math.random() * 100000000);
+            
+            // Display ordered items
+            const itemsContainer = document.getElementById('ordered-items');
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p>No items in this order</p>';
+            } else {
+                itemsContainer.innerHTML = cart.map(item => `
+                    <div class="order-item">
+                        <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}" class="item-image">
+                        <div class="item-details">
+                            <div class="item-name">${item.name || 'Unnamed product'}</div>
+                            <div class="item-price">₹${(item.price || 0).toLocaleString('en-IN')}</div>
+                            <div class="item-quantity">Quantity: ${item.quantity || 1}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Display shipping info
+            document.getElementById('shipping-name').textContent = 
+                `${orderDetails.firstName || ''} ${orderDetails.lastName || ''}`.trim() || 'Not provided';
+            
+            const address2 = orderDetails.address2 ? `, ${orderDetails.address2}` : '';
+            document.getElementById('shipping-address').textContent = 
+                `${orderDetails.address || 'Address not provided'}${address2}`;
+            
+            document.getElementById('shipping-city').textContent = 
+                `${orderDetails.city || ''}, ${orderDetails.state || ''} - ${orderDetails.zip || 'Pincode not provided'}`;
+            
+            document.getElementById('shipping-phone').textContent = orderDetails.phone || 'Phone not provided';
+            
+            // Update delivery address text in status card
+            document.getElementById('delivery-address-text').textContent = 
+                `${orderDetails.address || 'Address not provided'}${address2}, ${orderDetails.city || ''}, ${orderDetails.state || ''} - ${orderDetails.zip || 'Pincode not provided'}`;
+            
+            // Display payment info
+            let paymentDisplay = 'Payment method not specified';
+            if (orderDetails.paymentMethod === 'credit-card' && orderDetails.cardLast4) {
+                paymentDisplay = `Credit Card (•••• •••• •••• ${orderDetails.cardLast4})`;
+                if (orderDetails.cardName) {
+                    paymentDisplay += ` - ${orderDetails.cardName}`;
+                }
+            } else if (orderDetails.paymentMethod === 'upi' && orderDetails.upiId) {
+                paymentDisplay = `UPI (${orderDetails.upiId})`;
+            } else if (orderDetails.paymentMethod === 'cod') {
+                paymentDisplay = 'Cash on Delivery';
+            }
+            document.getElementById('payment-method').textContent = paymentDisplay;
+            
+            // Set current date and time
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('order-date').textContent = formattedDate;
+            
+            // Calculate delivery timeline
+            const processingDate = new Date(now);
+            processingDate.setHours(23, 59, 0); // End of day
+            
+            const shippingDate = new Date(now);
+            shippingDate.setDate(shippingDate.getDate() + 1);
+            shippingDate.setHours(10, 0, 0); // Next morning
+            
+            const deliveryDate = new Date(now);
+            deliveryDate.setDate(deliveryDate.getDate() + 3); // 3 days from now
+            
+            const completedDate = new Date(deliveryDate);
+            completedDate.setHours(18, 0, 0); // Evening
+            
+            // Format dates for display
+            function formatTimelineDate(date) {
+                if (date.toDateString() === now.toDateString()) {
+                    return 'Today, ' + date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                } else if (date.toDateString() === new Date(now.getTime() + 86400000).toDateString()) {
+                    return 'Tomorrow, ' + date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                } else {
+                    return date.toLocaleDateString('en-IN', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    }) + (date.getHours() > 0 ? ', ' + date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) : '');
+                }
+            }
+            
+            // Format short dates for status steps
+            function formatShortDate(date) {
+                if (date.toDateString() === now.toDateString()) {
+                    return 'Today';
+                } else if (date.toDateString() === new Date(now.getTime() + 86400000).toDateString()) {
+                    return 'Tomorrow';
+                } else {
+                    return date.toLocaleDateString('en-IN', {
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                }
+            }
+            
+            // Update timeline dates in status card
+            document.getElementById('step-1-date').textContent = formatTimelineDate(now);
+            document.getElementById('step-2-date').textContent = formatShortDate(processingDate);
+            document.getElementById('step-3-date').textContent = formatShortDate(shippingDate);
+            document.getElementById('step-4-date').textContent = formatShortDate(deliveryDate);
+            document.getElementById('step-5-date').textContent = formatShortDate(completedDate);
+            
+            // Update estimated delivery
+            const formattedDeliveryDate = deliveryDate.toLocaleDateString('en-IN', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('estimated-delivery-text').textContent = 
+                `${formattedDeliveryDate} (3 business days)`;
+            
+            // Calculate and display order totals
+            const subtotal = cart.reduce((total, item) => {
+                return total + ((item.price || 0) * (item.quantity || 1));
+            }, 0);
+            
+            const shipping = cart.length > 0 ? 99 : 0;
+            const tax = parseFloat((subtotal * 0.18).toFixed(2));
+            const total = parseFloat((subtotal + shipping + tax).toFixed(2));
+            
+            document.getElementById('order-subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('order-shipping').textContent = `₹${shipping.toFixed(2)}`;
+            document.getElementById('order-tax').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('order-total').textContent = `₹${total.toFixed(2)}`;
+            
+            // Track order button
+            document.getElementById('track-order-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Your order tracking will be available once shipped. We will send you tracking details via email and SMS.');
+            });
+            
+            // Save to all orders history (always add new order to history)
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            const orderData = {
+                orderNumber: orderDetails.orderNumber || 'LM' + Math.floor(Math.random() * 100000000),
+                date: now.toISOString(),
+                cart: [...cart],
+                shipping: orderDetails,
+                payment: {
+                    method: orderDetails.paymentMethod,
+                    status: 'completed'
+                },
+                timeline: {
+                    processing: processingDate.toISOString(),
+                    shipping: shippingDate.toISOString(),
+                    delivery: deliveryDate.toISOString(),
+                    completed: completedDate.toISOString()
+                },
+                total: total,
+                status: 'processing' // Can be 'processing', 'shipped', 'delivered', 'cancelled'
+            };
+            
+            // Add new order to the beginning of the array
+            allOrders.unshift(orderData);
+            localStorage.setItem('allOrders', JSON.stringify(allOrders));
+            
+            // Display all orders (including the new one)
+            displayAllOrders();
+            
+            // Add event listener for cancel buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn-cancel')) {
+                    const orderNumber = e.target.dataset.orderNumber;
+                    cancelOrder(orderNumber);
+                }
+            });
+        });
+        
+        function displayAllOrders() {
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            const ordersContainer = document.getElementById('all-orders-list');
+            
+            if (allOrders.length === 0) {
+                ordersContainer.innerHTML = '<p style="text-align: center; padding: 20px;">You have no orders yet.</p>';
+                return;
+            }
+            
+            ordersContainer.innerHTML = allOrders.map(order => {
+                // Format order date
+                const orderDate = new Date(order.date);
+                const formattedDate = orderDate.toLocaleDateString('en-IN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                // Get status class and text
+                let statusClass, statusText;
+                switch (order.status) {
+                    case 'processing':
+                        statusClass = 'status-processing';
+                        statusText = 'Processing';
+                        break;
+                    case 'shipped':
+                        statusClass = 'status-shipped';
+                        statusText = 'Shipped';
+                        break;
+                    case 'delivered':
+                        statusClass = 'status-delivered';
+                        statusText = 'Delivered';
+                        break;
+                    case 'cancelled':
+                        statusClass = 'status-cancelled';
+                        statusText = 'Cancelled';
+                        break;
+                    default:
+                        statusClass = 'status-processing';
+                        statusText = 'Processing';
+                }
+                
+                // Generate product HTML
+                const productsHtml = order.cart.map(item => `
+                    <div class="order-history-product">
+                        <img src="${item.image || 'https://via.placeholder.com/60'}" alt="${item.name}" class="order-history-product-img">
+                        <div class="order-history-product-info">
+                            <div class="order-history-product-name">${item.name || 'Unnamed product'}</div>
+                            <div class="order-history-product-price">${item.quantity || 1} × ₹${(item.price || 0).toFixed(2)}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                return `
+                    <div class="order-history-item">
+                        <div class="order-history-header">
+                            <div>
+                                <span class="order-history-id">Order #${order.orderNumber}</span>
+                                <span class="order-history-date">${formattedDate}</span>
+                            </div>
+                            <div class="order-history-status ${statusClass}">${statusText}</div>
+                        </div>
+                        
+                        <div class="order-history-products">
+                            ${productsHtml}
+                        </div>
+                        
+                        <div class="order-history-footer">
+                            <div class="order-history-total">Total: ₹${order.total.toFixed(2)}</div>
+                            <div class="order-history-actions">
+                                ${order.status !== 'cancelled' && order.status !== 'delivered' ? 
+                                    `<button class="btn-cancel" data-order-number="${order.orderNumber}">Cancel Order</button>` : ''}
+                                <button class="btn-view">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function cancelOrder(orderNumber) {
+            if (!confirm('Are you sure you want to cancel this order?')) {
+                return;
+            }
+            
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            const orderIndex = allOrders.findIndex(order => order.orderNumber === orderNumber);
+            
+            if (orderIndex !== -1) {
+                allOrders[orderIndex].status = 'cancelled';
+                localStorage.setItem('allOrders', JSON.stringify(allOrders));
+                displayAllOrders();
+                showToast('Order has been cancelled');
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize jsPDF
+            const { jsPDF } = window.jspdf;
+            
+            // Add download receipt functionality
+            document.getElementById('download-receipt-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                generatePDFReceipt();
+            });
+            
+            function generatePDFReceipt() {
+                // Get order details
+                const orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
+                const cart = orderDetails.cart || [];
+                const now = new Date();
+                
+                // Calculate totals
+                const subtotal = cart.reduce((total, item) => {
+                    return total + ((item.price || 0) * (item.quantity || 1));
+                }, 0);
+                
+                const shipping = cart.length > 0 ? 99 : 0;
+                const tax = parseFloat((subtotal * 0.18).toFixed(2));
+                const total = parseFloat((subtotal + shipping + tax).toFixed(2));
+                
+                // Format payment method
+                let paymentDisplay = 'Payment method not specified';
+                if (orderDetails.paymentMethod === 'credit-card' && orderDetails.cardLast4) {
+                    paymentDisplay = `Credit Card (•••• •••• •••• ${orderDetails.cardLast4})`;
+                    if (orderDetails.cardName) {
+                        paymentDisplay += ` - ${orderDetails.cardName}`;
+                    }
+                } else if (orderDetails.paymentMethod === 'upi' && orderDetails.upiId) {
+                    paymentDisplay = `UPI (${orderDetails.upiId})`;
+                } else if (orderDetails.paymentMethod === 'cod') {
+                    paymentDisplay = 'Cash on Delivery';
+                }
+                
+                // Create new PDF document
+                const doc = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                // Set margins
+                const margin = 15;
+                const pageWidth = doc.internal.pageSize.getWidth();
+                const contentWidth = pageWidth - (margin * 2);
+
+                // Add company header
+                doc.setFontSize(20);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(40, 40, 40);
+                doc.text('LuxeMarket', margin, margin + 10);
+                
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(100, 100, 100);
+                doc.text('Order Receipt', margin, margin + 16);
+                
+                // Add order info
+                doc.setFontSize(10);
+                doc.setTextColor(80, 80, 80);
+                doc.text(`Order #: ${orderDetails.orderNumber || 'LM' + Math.floor(Math.random() * 100000000)}`, pageWidth - margin, margin + 10, { align: 'right' });
+                doc.text(`Date: ${now.toLocaleDateString('en-IN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })}`, pageWidth - margin, margin + 16, { align: 'right' });
+                
+                // Add divider line
+                doc.setDrawColor(200, 200, 200);
+                doc.line(margin, margin + 20, pageWidth - margin, margin + 20);
+                
+                // Customer information section
+                let yPos = margin + 30;
+                
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(40, 40, 40);
+                doc.text('BILL TO:', margin, yPos);
+                
+                doc.setFontSize(10);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(80, 80, 80);
+                yPos += 6;
+                doc.text(`${orderDetails.firstName || ''} ${orderDetails.lastName || ''}`, margin, yPos);
+                yPos += 6;
+                doc.text(`${orderDetails.address || ''}${orderDetails.address2 ? ', ' + orderDetails.address2 : ''}`, margin, yPos);
+                yPos += 6;
+                doc.text(`${orderDetails.city || ''}, ${orderDetails.state || ''} - ${orderDetails.zip || ''}`, margin, yPos);
+                yPos += 6;
+                doc.text(`Phone: ${orderDetails.phone || ''}`, margin, yPos);
+                yPos += 6;
+                doc.text(`Email: ${orderDetails.email || ''}`, margin, yPos);
+                
+                // Payment information section
+                yPos = margin + 30;
+                
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(40, 40, 40);
+                doc.text('PAYMENT METHOD:', pageWidth - margin, yPos, { align: 'right' });
+                
+                doc.setFontSize(10);
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(80, 80, 80);
+                yPos += 6;
+                doc.text(paymentDisplay, pageWidth - margin, yPos, { align: 'right' });
+                yPos += 6;
+                doc.text(`Status: Paid`, pageWidth - margin, yPos, { align: 'right' });
+                yPos += 6;
+                doc.text(`Date: ${now.toLocaleDateString('en-IN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                })}`, pageWidth - margin, yPos, { align: 'right' });
+                
+                // Items table header
+                yPos = margin + 70;
+                
+                doc.setFontSize(12);
+                doc.setFont('helvetica', 'bold');
+                doc.setTextColor(40, 40, 40);
+                doc.text('ITEMS ORDERED', margin, yPos);
+                
+                // Add divider line
+                doc.setDrawColor(200, 200, 200);
+                doc.line(margin, yPos + 3, pageWidth - margin, yPos + 3);
+                
+                // Prepare table data
+                const tableData = cart.map(item => [
+                    item.name || 'Unnamed product',
+                    `₹${(item.price || 0).toFixed(2)}`,
+                    item.quantity || 1,
+                    `₹${((item.price || 0) * (item.quantity || 1)).toFixed(2)}`
+                ]);
+                
+                // Add empty row if no items
+                if (tableData.length === 0) {
+                    tableData.push(['No items in this order', '', '', '']);
+                }
+                
+                // Add table footer with totals
+                tableData.push(
+                    [{ content: 'Subtotal:', colSpan: 3, styles: { fontStyle: 'bold', halign: 'right' }}, `₹${subtotal.toFixed(2)}`],
+                    [{ content: 'Shipping:', colSpan: 3, styles: { fontStyle: 'bold', halign: 'right' }}, `₹${shipping.toFixed(2)}`],
+                    [{ content: 'Tax (18%):', colSpan: 3, styles: { fontStyle: 'bold', halign: 'right' }}, `₹${tax.toFixed(2)}`],
+                    [{ content: 'Total:', colSpan: 3, styles: { fontStyle: 'bold', halign: 'right' }}, { content: `₹${total.toFixed(2)}`, styles: { fontStyle: 'bold' }}]
+                );
+                
+                // Add table
+                doc.autoTable({
+                    startY: yPos + 10,
+                    head: [['Description', 'Unit Price', 'Qty', 'Amount']],
+                    body: tableData,
+                    theme: 'grid',
+                    headStyles: {
+                        fillColor: [40, 40, 40],
+                        textColor: 255,
+                        fontStyle: 'bold',
+                        fontSize: 10
+                    },
+                    bodyStyles: {
+                        fontSize: 9
+                    },
+                    columnStyles: {
+                        0: { cellWidth: 'auto', fontStyle: 'bold' }, // Description
+                        1: { cellWidth: 30, halign: 'right' },       // Unit Price
+                        2: { cellWidth: 20, halign: 'center' },      // Qty
+                        3: { cellWidth: 30, halign: 'right' }        // Amount
+                    },
+                    margin: { left: margin, right: margin },
+                    styles: {
+                        lineColor: [200, 200, 200],
+                        lineWidth: 0.2
+                    },
+                    footStyles: {
+                        fontStyle: 'bold'
+                    }
+                });
+                
+                // Footer notes
+                const finalY = doc.lastAutoTable.finalY + 15;
+                
+                doc.setFontSize(9);
+                doc.setTextColor(100, 100, 100);
+                doc.text('Thank you for shopping with LuxeMarket!', pageWidth / 2, finalY, { align: 'center' });
+                doc.text('For any questions about your order, please contact our customer support:', pageWidth / 2, finalY + 5, { align: 'center' });
+                doc.text('support@luxemarket.com | +91 12345 67890', pageWidth / 2, finalY + 10, { align: 'center' });
+                
+                // Add page border
+                doc.setDrawColor(220, 220, 220);
+                doc.rect(5, 5, pageWidth - 10, doc.internal.pageSize.getHeight() - 10);
+                
+                // Save the PDF with professional filename
+                doc.save(`LuxeMarket_Order_${orderDetails.orderNumber || 'LM' + Math.floor(Math.random() * 100000000)}.pdf`);
+            }
+        });
+        
+    
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart and wishlist from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            // Get toggle elements
+            const searchToggle = document.getElementById('search-toggle');
+            const wishlistToggle = document.getElementById('wishlist-toggle');
+            const cartToggle = document.getElementById('cart-toggle');
+            
+            // Update counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Initialize dropdowns if already open
+            initializeDropdowns();
+            
+            // Set up event listeners
+            setupDropdownToggleListeners();
+            
+            // Search functionality
+            setupSearch();
+    
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    cartCount.textContent = itemCount;
+                }
+            }
+    
+            function updateWishlistCount() {
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlistCount) {
+                    wishlistCount.textContent = wishlist.length;
+                }
+            }
+    
+            function initializeDropdowns() {
+                if (cartToggle.checked) displayCartItems();
+                if (wishlistToggle.checked) displayWishlistItems();
+                if (searchToggle.checked) setupSearch();
+            }
+    
+            function setupDropdownToggleListeners() {
+                // Close other dropdowns when one is opened
+                const toggles = [searchToggle, wishlistToggle, cartToggle];
+                
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            // Close other dropdowns
+                            toggles.forEach(t => {
+                                if (t !== this && t.checked) {
+                                    t.checked = false;
+                                    // Trigger change event manually if needed
+                                    t.dispatchEvent(new Event('change'));
+                                }
+                            });
+                            
+                            // Load content for the opened dropdown
+                            if (this === cartToggle) displayCartItems();
+                            else if (this === wishlistToggle) displayWishlistItems();
+                        }
+                    });
+                });
+            }
+    
+            function setupSearch() {
+                const searchButton = document.getElementById('search-button');
+                if (searchButton) {
+                    searchButton.addEventListener('click', function() {
+                        const searchTerm = document.getElementById('search-input').value.trim();
+                        if (searchTerm) {
+                            // Implement your search functionality here
+                            // For example: window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                            showToast(`Searching for: ${searchTerm}`);
+                        }
+                    });
+                    
+                    // Allow search on Enter key
+                    document.getElementById('search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            searchButton.click();
+                        }
+                    });
+                }
+            }
+    
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your cart is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                cart.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.quantity || 1} x ₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="cart" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Calculate subtotal
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                html += `
+                    <div class="dropdown-subtotal">
+                        <p>Subtotal: <strong>₹${subtotal.toFixed(2)}</strong></p>
+                    </div>
+                `;
+                html += '</div>';
+                
+                cartItemsContainer.innerHTML = html;
+    
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        displayCartItems();
+                        showToast('Item removed from cart');
+                    });
+                });
+            }
+    
+            function displayWishlistItems() {
+                const wishlistItemsContainer = document.getElementById('wishlist-items');
+                if (wishlist.length === 0) {
+                    wishlistItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your wishlist is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                wishlist.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn add-to-cart-btn" data-index="${index}" title="Add to Cart">+</button>
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                wishlistItemsContainer.innerHTML = html;
+    
+                // Add event listeners to buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        
+                        // Check if item already exists in cart
+                        const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                        
+                        if (existingItem) {
+                            existingItem.quantity = (existingItem.quantity || 1) + 1;
+                        } else {
+                            cart.push({...item, quantity: 1});
+                        }
+                        
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        showToast(`${item.name} added to cart!`);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        wishlist.splice(index, 1);
+                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        updateWishlistCount();
+                        displayWishlistItems();
+                        showToast(`${item.name} removed from wishlist`);
+                    });
+                });
+            }
+    
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.right = '20px';
+                toast.style.backgroundColor = '#4F46E5';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '4px';
+                toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                toast.style.zIndex = '10000';
+                toast.style.transition = 'all 0.3s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                toast.textContent = message;
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize jsPDF
+            const { jsPDF } = window.jspdf;
+            
+            // Get order details from localStorage
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
+            const cart = orderDetails.cart || [];
+            
+            // Display current order information
+            displayCurrentOrder(orderDetails, cart);
+            
+            // Save to all orders history (if this is a new order)
+            saveOrderToHistory(orderDetails, cart);
+            
+            // Display all orders
+            displayAllOrders();
+            
+            // Set up event listeners
+            setupEventListeners();
+        });
+        
+        function displayCurrentOrder(orderDetails, cart) {
+            // Display order information
+            document.getElementById('order-id').textContent = orderDetails.orderNumber || 'LM' + Math.floor(Math.random() * 100000000);
+            
+            // Display ordered items
+            const itemsContainer = document.getElementById('ordered-items');
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = '<p>No items in this order</p>';
+            } else {
+                itemsContainer.innerHTML = cart.map(item => `
+                    <div class="order-item">
+                        <img src="${item.image || 'https://via.placeholder.com/80'}" alt="${item.name}" class="item-image">
+                        <div class="item-details">
+                            <div class="item-name">${item.name || 'Unnamed product'}</div>
+                            <div class="item-price">₹${(item.price || 0).toLocaleString('en-IN')}</div>
+                            <div class="item-quantity">Quantity: ${item.quantity || 1}</div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            // Display shipping info
+            document.getElementById('shipping-name').textContent = 
+                `${orderDetails.firstName || ''} ${orderDetails.lastName || ''}`.trim() || 'Not provided';
+            
+            const address2 = orderDetails.address2 ? `, ${orderDetails.address2}` : '';
+            document.getElementById('shipping-address').textContent = 
+                `${orderDetails.address || 'Address not provided'}${address2}`;
+            
+            document.getElementById('shipping-city').textContent = 
+                `${orderDetails.city || ''}, ${orderDetails.state || ''} - ${orderDetails.zip || 'Pincode not provided'}`;
+            
+            document.getElementById('shipping-phone').textContent = orderDetails.phone || 'Phone not provided';
+            
+            // Update delivery address text in status card
+            document.getElementById('delivery-address-text').textContent = 
+                `${orderDetails.address || 'Address not provided'}${address2}, ${orderDetails.city || ''}, ${orderDetails.state || ''} - ${orderDetails.zip || 'Pincode not provided'}`;
+            
+            // Display payment info
+            let paymentDisplay = 'Payment method not specified';
+            if (orderDetails.paymentMethod === 'credit-card' && orderDetails.cardLast4) {
+                paymentDisplay = `Credit Card (•••• •••• •••• ${orderDetails.cardLast4})`;
+                if (orderDetails.cardName) {
+                    paymentDisplay += ` - ${orderDetails.cardName}`;
+                }
+            } else if (orderDetails.paymentMethod === 'upi' && orderDetails.upiId) {
+                paymentDisplay = `UPI (${orderDetails.upiId})`;
+            } else if (orderDetails.paymentMethod === 'cod') {
+                paymentDisplay = 'Cash on Delivery';
+            }
+            document.getElementById('payment-method').textContent = paymentDisplay;
+            
+            // Set current date and time
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-IN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            document.getElementById('order-date').textContent = formattedDate;
+            
+            // Calculate delivery timeline
+            const processingDate = new Date(now);
+            processingDate.setHours(23, 59, 0); // End of day
+            
+            const shippingDate = new Date(now);
+            shippingDate.setDate(shippingDate.getDate() + 1);
+            shippingDate.setHours(10, 0, 0); // Next morning
+            
+            const deliveryDate = new Date(now);
+            deliveryDate.setDate(deliveryDate.getDate() + 3); // 3 days from now
+            
+            const completedDate = new Date(deliveryDate);
+            completedDate.setHours(18, 0, 0); // Evening
+            
+            // Format dates for display
+            function formatTimelineDate(date) {
+                if (date.toDateString() === now.toDateString()) {
+                    return 'Today, ' + date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                } else if (date.toDateString() === new Date(now.getTime() + 86400000).toDateString()) {
+                    return 'Tomorrow, ' + date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
+                } else {
+                    return date.toLocaleDateString('en-IN', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
+                    }) + (date.getHours() > 0 ? ', ' + date.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }) : '');
+                }
+            }
+            
+            // Format short dates for status steps
+            function formatShortDate(date) {
+                if (date.toDateString() === now.toDateString()) {
+                    return 'Today';
+                } else if (date.toDateString() === new Date(now.getTime() + 86400000).toDateString()) {
+                    return 'Tomorrow';
+                } else {
+                    return date.toLocaleDateString('en-IN', {
+                        month: 'short',
+                        day: 'numeric'
+                    });
+                }
+            }
+            
+            // Update timeline dates in status card
+            document.getElementById('step-1-date').textContent = formatTimelineDate(now);
+            document.getElementById('step-2-date').textContent = formatShortDate(processingDate);
+            document.getElementById('step-3-date').textContent = formatShortDate(shippingDate);
+            document.getElementById('step-4-date').textContent = formatShortDate(deliveryDate);
+            document.getElementById('step-5-date').textContent = formatShortDate(completedDate);
+            
+            // Update estimated delivery
+            const formattedDeliveryDate = deliveryDate.toLocaleDateString('en-IN', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric'
+            });
+            document.getElementById('estimated-delivery-text').textContent = 
+                `${formattedDeliveryDate} (3 business days)`;
+            
+            // Calculate and display order totals
+            const subtotal = cart.reduce((total, item) => {
+                return total + ((item.price || 0) * (item.quantity || 1));
+            }, 0);
+            
+            const shipping = cart.length > 0 ? 99 : 0;
+            const tax = parseFloat((subtotal * 0.18).toFixed(2));
+            const total = parseFloat((subtotal + shipping + tax).toFixed(2));
+            
+            document.getElementById('order-subtotal').textContent = `₹${subtotal.toFixed(2)}`;
+            document.getElementById('order-shipping').textContent = `₹${shipping.toFixed(2)}`;
+            document.getElementById('order-tax').textContent = `₹${tax.toFixed(2)}`;
+            document.getElementById('order-total').textContent = `₹${total.toFixed(2)}`;
+        }
+        
+        function saveOrderToHistory(orderDetails, cart) {
+            // Only save if this is a real order (cart has items)
+            if (cart.length === 0) return;
+            
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            const now = new Date();
+            
+            // Check if this order already exists in history
+            const orderExists = allOrders.some(order => 
+                order.orderNumber === (orderDetails.orderNumber || '')
+            );
+            
+            if (!orderExists) {
+                const orderData = {
+                    orderNumber: orderDetails.orderNumber || 'LM' + Math.floor(Math.random() * 100000000),
+                    date: now.toISOString(),
+                    cart: [...cart],
+                    shipping: {...orderDetails},
+                    payment: {
+                        method: orderDetails.paymentMethod,
+                        status: 'completed'
+                    },
+                    total: cart.reduce((total, item) => {
+                        return total + ((item.price || 0) * (item.quantity || 1));
+                    }, 0) + 99 + (cart.reduce((total, item) => {
+                        return total + ((item.price || 0) * (item.quantity || 1));
+                    }, 0) * 0.18),
+                    status: 'processing'
+                };
+                
+                // Add to beginning of array (newest first)
+                allOrders.unshift(orderData);
+                localStorage.setItem('allOrders', JSON.stringify(allOrders));
+            }
+        }
+        
+        function displayAllOrders() {
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            const ordersContainer = document.getElementById('all-orders-list');
+            
+            if (allOrders.length === 0) {
+                ordersContainer.innerHTML = `
+                    <div class="empty-orders">
+                        <i class="fas fa-box-open"></i>
+                        <h3>No Orders Yet</h3>
+                        <p>You haven't placed any orders yet. Start shopping to see your order history here.</p>
+                        <a href="shop.html" class="btn btn-primary">Start Shopping</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            ordersContainer.innerHTML = allOrders.map((order, index) => {
+                // Format order date
+                const orderDate = new Date(order.date);
+                const formattedDate = orderDate.toLocaleDateString('en-IN', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                
+                // Get status class and text
+                let statusClass, statusText;
+                switch (order.status) {
+                    case 'processing':
+                        statusClass = 'status-processing';
+                        statusText = 'Processing';
+                        break;
+                    case 'shipped':
+                        statusClass = 'status-shipped';
+                        statusText = 'Shipped';
+                        break;
+                    case 'delivered':
+                        statusClass = 'status-delivered';
+                        statusText = 'Delivered';
+                        break;
+                    case 'cancelled':
+                        statusClass = 'status-cancelled';
+                        statusText = 'Cancelled';
+                        break;
+                    default:
+                        statusClass = 'status-processing';
+                        statusText = 'Processing';
+                }
+                
+                // Generate product HTML
+                const productsHtml = order.cart.map(item => `
+                    <div class="order-history-product">
+                        <img src="${item.image || 'https://via.placeholder.com/60'}" alt="${item.name}" class="order-history-product-img">
+                        <div class="order-history-product-info">
+                            <div class="order-history-product-name">${item.name || 'Unnamed product'}</div>
+                            <div class="order-history-product-price">${item.quantity || 1} × ₹${(item.price || 0).toFixed(2)}</div>
+                        </div>
+                    </div>
+                `).join('');
+                
+                return `
+                    <div class="order-history-item">
+                        <div class="order-history-header">
+                            <div>
+                                <span class="order-history-id">Order #${order.orderNumber}</span>
+                                <span class="order-history-date">${formattedDate}</span>
+                            </div>
+                            <div class="order-history-status ${statusClass}">${statusText}</div>
+                        </div>
+                        
+                        <div class="order-history-products">
+                            ${productsHtml}
+                        </div>
+                        
+                        <div class="order-history-footer">
+                            <div class="order-history-total">Total: ₹${order.total.toFixed(2)}</div>
+                            <div class="order-history-actions">
+                                ${order.status !== 'cancelled' && order.status !== 'delivered' ? 
+                                    `<button class="btn-cancel" data-order-index="${index}">Cancel Order</button>` : ''}
+                                <button class="btn-view">View Details</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+        
+        function setupEventListeners() {
+            // Track order button
+            document.getElementById('track-order-btn')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Your order tracking will be available once shipped. We will send you tracking details via email and SMS.');
+            });
+            
+            // Download receipt button
+            document.getElementById('download-receipt-btn')?.addEventListener('click', function(e) {
+                e.preventDefault();
+                generatePDFReceipt();
+            });
+            
+            // Cancel order buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('btn-cancel')) {
+                    const orderIndex = parseInt(e.target.getAttribute('data-order-index'));
+                    cancelOrder(orderIndex);
+                }
+            });
+        }
+        
+        function cancelOrder(orderIndex) {
+            if (!confirm('Are you sure you want to cancel this order?')) {
+                return;
+            }
+            
+            const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+            if (orderIndex >= 0 && orderIndex < allOrders.length) {
+                allOrders[orderIndex].status = 'cancelled';
+                localStorage.setItem('allOrders', JSON.stringify(allOrders));
+                displayAllOrders();
+                showToast('Order has been cancelled');
+            }
+        }
+        
+        function generatePDFReceipt() {
+            // ... (previous PDF generation code remains the same)
+        }
+        
+        function showToast(message) {
+            // ... (previous toast code remains the same)
+        }
+        
+
+        // View details buttons
+document.addEventListener('click', function(e) {
+    if (e.target.classList.contains('btn-view')) {
+        e.preventDefault();
+        const orderItem = e.target.closest('.order-history-item');
+        const orderId = orderItem.querySelector('.order-history-id').textContent;
+        const orderStatus = orderItem.querySelector('.order-history-status').textContent;
+        
+        // Find the order in allOrders
+        const allOrders = JSON.parse(localStorage.getItem('allOrders')) || [];
+        const order = allOrders.find(o => `Order #${o.orderNumber}` === orderId);
+        
+        if (order) {
+            // Create a modal to show order details
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0,0,0,0.5)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
+            
+            // Modal content
+            modal.innerHTML = `
+                <div style="background: white; padding: 20px; border-radius: 8px; max-width: 600px; width: 90%; max-height: 80vh; overflow-y: auto;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2>${orderId}</h2>
+                        <span class="order-history-status ${orderStatus.toLowerCase()}">${orderStatus}</span>
+                        <button style="background: none; border: none; font-size: 20px; cursor: pointer;" class="close-modal">×</button>
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">Order Items</h3>
+                        ${order.cart.map(item => `
+                            <div style="display: flex; padding: 10px 0; border-bottom: 1px solid #eee;">
+                                <img src="${item.image || 'https://via.placeholder.com/60'}" alt="${item.name}" style="width: 60px; height: 60px; object-fit: cover; margin-right: 15px;">
+                                <div style="flex-grow: 1;">
+                                    <div style="font-weight: 500;">${item.name || 'Unnamed product'}</div>
+                                    <div>Quantity: ${item.quantity || 1}</div>
+                                    <div>Price: ₹${(item.price || 0).toFixed(2)}</div>
+                                </div>
+                                <div style="font-weight: bold;">₹${((item.price || 0) * (item.quantity || 1)).toFixed(2)}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">Order Summary</h3>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Subtotal:</span>
+                            <span>₹${(order.total - 99 - (order.total * 0.18)).toFixed(2)}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Shipping:</span>
+                            <span>₹99.00</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Tax (18%):</span>
+                            <span>₹${(order.total * 0.18).toFixed(2)}</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; margin-top: 10px; padding-top: 10px; border-top: 1px solid #eee;">
+                            <span>Total:</span>
+                            <span>₹${order.total.toFixed(2)}</span>
+                        </div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                        <button style="padding: 8px 15px; background: #f5f5f5; border: none; border-radius: 4px; cursor: pointer;" class="close-modal">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Close modal functionality
+            modal.querySelector('.close-modal').addEventListener('click', function() {
+                document.body.removeChild(modal);
+            });
+        }
+    }
+});
+    </script>
+</body>
+</html>

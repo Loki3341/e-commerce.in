@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Your Order - LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="order.css">
+    <link rel="stylesheet" href="font.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="shop.html">Shop</a>
+                <!-- <a href="medicines.html">Medicines</a>
+                <a href="groceries.html">Groceries</a> -->
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-icons">
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <p style="padding: 15px; text-align: center;">Your wishlist is empty</p>
+                        </div>
+                       <a href="wishlist.html"> <button class="view-wishlist-btn">View Wishlist</button></a>
+                    </div>
+                </div>
+                
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <p style="padding: 15px; text-align: center;">Your cart is empty</p>
+                        </div>
+                       <a href="cart.html"><button class="view-cart-btn">View Cart</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Processing Main Content -->
+    <main class="processing-main">
+        <div class="processing-container">
+            <div class="processing-header">
+                <div class="processing-icon">
+                    <i class="fas fa-cog fa-spin"></i>
+                </div>
+                <h1>Processing Your Order</h1>
+                <p class="processing-subtitle">Thank you for choosing LuxeMarket. We're preparing your premium experience now.</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-text">
+                    <span>Order Status</span>
+                    <span class="progress-status" id="progress-status">Processing Payment</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" id="progress-bar"></div>
+                </div>
+            </div>
+            
+            <div class="order-details">
+                <div class="detail-item">
+                    <span class="detail-label">Order Number:</span>
+                    <span class="detail-value" id="order-number">LM-XXXXXX</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Customer:</span>
+                    <span class="detail-value" id="customer-name">Loading...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Payment Method:</span>
+                    <span class="detail-value" id="payment-method">Loading...</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Estimated Delivery:</span>
+                    <span class="detail-value" id="delivery-estimate">Calculating...</span>
+                </div>
+            </div>
+            
+            <p class="processing-note">
+                <i class="fas fa-info-circle" style="margin-right: 8px;"></i>
+                Please wait while we finalize your order. This page will automatically redirect to your confirmation.
+                For immediate assistance, contact our <a href="contactUs.html" style="color: #4F46E5;">concierge service</a>.
+            </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your premium destination for luxury goods and curated essentials.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shopping</a></li>
+                    <li><a href="medice.html">Medicines</a></li>
+                    <li><a href="groceries.html">Groceries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contactUs.html">Concierge Service</a></li>
+                    <li><a href="delivery.html">Express Delivery</a></li>
+                    <li><a href="return.html">Returns Policy</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved.</p>
+            <p><a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+            <p class="disclaimer">Premium e-commerce experience by LuxeMarket</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get order details from localStorage
+            const orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
+            
+            // Display order information
+            const orderNumber = orderDetails.orderNumber || 'LM-' + Math.floor(100000 + Math.random() * 900000);
+            document.getElementById('order-number').textContent = orderNumber;
+            
+            document.getElementById('customer-name').textContent = 
+                `${orderDetails.firstName || ''} ${orderDetails.lastName || ''}`.trim() || 'Valued Customer';
+            
+            // Display payment method
+            let paymentMethod = 'Processing...';
+            if (orderDetails.paymentMethod === 'credit-card') {
+                paymentMethod = 'Credit Card (•••• •••• •••• ' + (orderDetails.cardLast4 || 'XXXX') + ')';
+            } else if (orderDetails.paymentMethod === 'upi') {
+                paymentMethod = 'UPI Payment';
+            } else if (orderDetails.paymentMethod === 'cod') {
+                paymentMethod = 'Cash on Delivery';
+            }
+            document.getElementById('payment-method').textContent = paymentMethod;
+            
+            // Calculate premium delivery estimate (1-2 business days)
+            const deliveryDate = new Date();
+            deliveryDate.setDate(deliveryDate.getDate() + 1 + Math.floor(Math.random() * 2));
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('delivery-estimate').textContent = 
+                deliveryDate.toLocaleDateString('en-US', options) + ' (Express Delivery)';
+            
+            // Animate progress bar with stages
+            const progressBar = document.getElementById('progress-bar');
+            const progressStatus = document.getElementById('progress-status');
+            
+            // Simulate premium order processing steps
+            const processingSteps = [
+                { status: "Verifying Payment", width: 20, delay: 800 },
+                { status: "Authenticating", width: 40, delay: 1200 },
+                { status: "Curating Items", width: 60, delay: 1600 },
+                { status: "Quality Check", width: 80, delay: 2000 },
+                { status: "Preparing Dispatch", width: 95, delay: 2400 },
+                { status: "Order Confirmed", width: 100, delay: 3000 }
+            ];
+            
+            let currentStep = 0;
+            
+            function processNextStep() {
+                if (currentStep < processingSteps.length) {
+                    const step = processingSteps[currentStep];
+                    progressBar.style.width = step.width + '%';
+                    progressStatus.textContent = step.status;
+                    
+                    if (step.status === "Order Confirmed") {
+                        setTimeout(function() {
+                            window.location.href = 'orders.html';
+                        }, 1000);
+                    }
+                    
+                    currentStep++;
+                    setTimeout(processNextStep, step.delay);
+                }
+            }
+            
+            // Start processing
+            setTimeout(processNextStep, 500);
+            
+            // Add spinning animation to cog icon
+            const cogIcon = document.querySelector('.fa-cog');
+            if (cogIcon) {
+                cogIcon.style.animation = 'spin 2s linear infinite';
+                
+                // Add spin keyframes dynamically
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    </script>
+</body>
+</html>

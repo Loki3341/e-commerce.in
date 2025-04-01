@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="faqs.css">
+    <link rel="stylesheet" href="font.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shopping</a>
+                <a href="medice.html">Medicines</a>
+                <a href="groceries.html">Groceries</a>
+                <a href="about.html">About</a>
+                <a href="faqs.html" class="active">FAQs</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <p style="padding: 15px; text-align: center;">Your wishlist is empty</p>
+                        </div>
+                        <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <p style="padding: 15px; text-align: center;">Your cart is empty</p>
+                        </div>
+                        <a href="cart.html" class="view-cart-btn">View Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+        <div class="faq-hero-content">
+            <h1>Frequently Asked Questions</h1>
+            <p>Find answers to common questions about our products, services, and policies.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <div class="faq-container">
+        <div class="search-container">
+            <input type="text" placeholder="Search FAQs...">
+            <i class="fas fa-search"></i>
+        </div>
+        
+        <div class="faq-categories">
+            <div class="category-btn active">All Questions</div>
+            <div class="category-btn">Shipping</div>
+            <div class="category-btn">Returns</div>
+            <div class="category-btn">Payments</div>
+            <div class="category-btn">Products</div>
+            <div class="category-btn">Account</div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Ordering & Payments</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What payment methods do you accept?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major credit and debit cards (Visa, Mastercard, American Express), PayPal, Apple Pay, Google Pay, and bank transfers. All transactions are securely processed through our encrypted payment gateway.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Is it safe to use my credit card on your website?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. We use industry-standard SSL encryption to protect your personal information. We don't store your credit card details on our servers - all payments are processed through PCI-compliant payment processors.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I change or cancel my order after placing it?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>You can request changes or cancellation within 1 hour of placing your order by contacting our customer service. After that, we process orders quickly to ensure fast delivery, so changes may not be possible.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer cash on delivery (COD)?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer COD for most locations in India. A small processing fee of ₹50 applies to COD orders. Some high-value items may require prepayment for security reasons.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Shipping & Delivery</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does shipping take?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Standard shipping within India takes 3-5 business days. Express shipping delivers in 1-2 business days. International shipping times vary by destination but typically take 7-14 business days.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer international shipping?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we ship to most countries worldwide. Shipping costs and delivery times vary by destination. You'll see available options and costs at checkout based on your location.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How can I track my order?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Once your order ships, you'll receive a confirmation email with tracking information. You can also track your order by logging into your account on our website.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What should I do if my package is lost or stolen?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Contact us immediately if your tracking shows delivered but you haven't received your package. We'll work with the carrier to investigate and will reship or refund as appropriate.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Returns & Exchanges</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What is your return policy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We offer 30-day returns for most items in original condition. Some items like underwear and personalized products are final sale. Please see our full <a href="returns-exchanges.html">Returns Policy</a> for details.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I return an item?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Log into your account to initiate a return, print the prepaid label (if eligible), and ship the item back to us. For defective items, we'll email you a prepaid return label.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How long does it take to process a refund?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Refunds are processed within 5-7 business days after we receive your return. It may take additional time for the refund to appear in your account depending on your payment method.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I exchange an item for a different size/color?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can request an exchange when initiating your return. If the item you want is available, we'll ship it once we receive your return. Exchanges typically ship within 2-3 business days.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Products & Quality</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Are your products authentic?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely. We source all our products directly from authorized dealers and brands. Every item is 100% authentic and comes with all original packaging and documentation.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer warranties on your products?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Most products come with a manufacturer's warranty. The warranty period varies by brand and product. Please check individual product pages for warranty details or contact us for specific information.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I see more photos of a product?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We provide multiple high-resolution photos for each product. If you'd like to see additional angles or details, please contact our customer service and we'll be happy to assist.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How do I care for my LuxeMarket products?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Each product comes with care instructions. For specific care questions, please refer to the product documentation or contact our customer service team for guidance.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-promo">
+            <h3>Still Have Questions?</h3>
+            <p>Our customer service team is available 24/7 to help with any additional questions you may have.</p>
+            <a href="contactUs.html" class="contact-btn">Contact Us</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About LuxeMarket</h3>
+                <p>Premium quality products for the discerning customer. Luxury meets affordability.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shopping</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="delivery.html">Delivery Information</a></li>
+                    <li><a href="return.html">Returns Policy</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+            <p class="disclaimer">Disclaimer: This is not a real pharmacy. For demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // FAQ accordion functionality
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    const item = question.parentElement;
+                    item.classList.toggle('active');
+                    
+                    // Close other open items
+                    faqQuestions.forEach(q => {
+                        if (q !== question && q.parentElement.classList.contains('active')) {
+                            q.parentElement.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // FAQ search functionality
+            const searchInput = document.querySelector('.search-container input');
+            searchInput.addEventListener('keyup', function() {
+                const searchTerm = this.value.toLowerCase();
+                const faqItems = document.querySelectorAll('.faq-item');
+                
+                faqItems.forEach(item => {
+                    const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                    const answer = item.querySelector('.faq-answer p').textContent.toLowerCase();
+                    
+                    if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        item.classList.add('active'); // Open matching items
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+            
+            // FAQ category filtering
+            const categoryBtns = document.querySelectorAll('.category-btn');
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter functionality would be implemented here
+                    // This is just a placeholder for the UI
+                });
+            });
+
+            // Update cart count from localStorage
+            function updateCartCount() {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                document.querySelector('.cart-count').textContent = itemCount;
+            }
+
+            // Initialize cart count
+            updateCartCount();
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart and wishlist from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            // Get toggle elements
+            const searchToggle = document.getElementById('search-toggle');
+            const wishlistToggle = document.getElementById('wishlist-toggle');
+            const cartToggle = document.getElementById('cart-toggle');
+            
+            // Update counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Initialize dropdowns if already open
+            initializeDropdowns();
+            
+            // Set up event listeners
+            setupDropdownToggleListeners();
+            
+            // Search functionality
+            setupSearch();
+    
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    cartCount.textContent = itemCount;
+                }
+            }
+    
+            function updateWishlistCount() {
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlistCount) {
+                    wishlistCount.textContent = wishlist.length;
+                }
+            }
+    
+            function initializeDropdowns() {
+                if (cartToggle.checked) displayCartItems();
+                if (wishlistToggle.checked) displayWishlistItems();
+                if (searchToggle.checked) setupSearch();
+            }
+    
+            function setupDropdownToggleListeners() {
+                // Close other dropdowns when one is opened
+                const toggles = [searchToggle, wishlistToggle, cartToggle];
+                
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            // Close other dropdowns
+                            toggles.forEach(t => {
+                                if (t !== this && t.checked) {
+                                    t.checked = false;
+                                    // Trigger change event manually if needed
+                                    t.dispatchEvent(new Event('change'));
+                                }
+                            });
+                            
+                            // Load content for the opened dropdown
+                            if (this === cartToggle) displayCartItems();
+                            else if (this === wishlistToggle) displayWishlistItems();
+                        }
+                    });
+                });
+            }
+    
+            function setupSearch() {
+                const searchButton = document.getElementById('search-button');
+                if (searchButton) {
+                    searchButton.addEventListener('click', function() {
+                        const searchTerm = document.getElementById('search-input').value.trim();
+                        if (searchTerm) {
+                            // Implement your search functionality here
+                            // For example: window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                            showToast(`Searching for: ${searchTerm}`);
+                        }
+                    });
+                    
+                    // Allow search on Enter key
+                    document.getElementById('search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            searchButton.click();
+                        }
+                    });
+                }
+            }
+    
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your cart is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                cart.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.quantity || 1} x ₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="cart" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Calculate subtotal
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                html += `
+                    <div class="dropdown-subtotal">
+                        <p>Subtotal: <strong>₹${subtotal.toFixed(2)}</strong></p>
+                    </div>
+                `;
+                html += '</div>';
+                
+                cartItemsContainer.innerHTML = html;
+    
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        displayCartItems();
+                        showToast('Item removed from cart');
+                    });
+                });
+            }
+    
+            function displayWishlistItems() {
+                const wishlistItemsContainer = document.getElementById('wishlist-items');
+                if (wishlist.length === 0) {
+                    wishlistItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your wishlist is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                wishlist.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn add-to-cart-btn" data-index="${index}" title="Add to Cart">+</button>
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                wishlistItemsContainer.innerHTML = html;
+    
+                // Add event listeners to buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        
+                        // Check if item already exists in cart
+                        const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                        
+                        if (existingItem) {
+                            existingItem.quantity = (existingItem.quantity || 1) + 1;
+                        } else {
+                            cart.push({...item, quantity: 1});
+                        }
+                        
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        showToast(`${item.name} added to cart!`);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        wishlist.splice(index, 1);
+                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        updateWishlistCount();
+                        displayWishlistItems();
+                        showToast(`${item.name} removed from wishlist`);
+                    });
+                });
+            }
+    
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.right = '20px';
+                toast.style.backgroundColor = '#4F46E5';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '4px';
+                toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                toast.style.zIndex = '10000';
+                toast.style.transition = 'all 0.3s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                toast.textContent = message;
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+    </script>
+</body>
+</html>

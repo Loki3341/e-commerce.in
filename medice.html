@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicines - LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="medice.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shopping</a>
+                <a href="medice.html" class="active">Medicines</a>
+                <a href="groceries.html">Groceries</a>
+                <a href="orders.html">Orders</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <h3>Search Products</h3>
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <div class="empty-dropdown">
+                                <i class="far fa-heart"></i>
+                                <p>Your wishlist is empty</p>
+                            </div>
+                        </div>
+                        <!-- <div class="dropdown-footer">
+                            <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+                        </div> -->
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <div class="empty-dropdown">
+                                <i class="fas fa-shopping-cart"></i>
+                                <p>Your cart is empty</p>
+                            </div>
+                        </div>
+                        <!-- <div class="dropdown-footer">
+                            <a href="cart.html" class="view-cart-btn">View Cart</a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Medicines Content -->
+    <main class="medicines-container">
+        <!-- Medicines Header -->
+        <section class="medicines-header">
+            <h1>Your Trusted Online Pharmacy</h1>
+            <p>Authentic medicines delivered to your doorstep with care and confidentiality</p>
+        </section>
+
+        <!-- Health Categories -->
+        <section class="health-categories">
+            <h2>Shop by Health Concern</h2>
+            <div class="categories-grid" id="categories-grid">
+                <!-- Categories will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <!-- Prescription Banner -->
+        <div class="prescription-banner">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Prescription medicines require a valid doctor's prescription. Upload your prescription during checkout.</p>
+        </div>
+
+        <!-- Products Section -->
+        <section class="products-section">
+            <h2 class="section-title" id="products-section-title">Featured Medicines</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- Products will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your trusted online pharmacy with genuine medicines and healthcare products.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shopping</a></li>
+                    <li><a href="medice.html">Medicines</a></li>
+                    <li><a href="groceries.html">Groceries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Health Services</h3>
+                <ul>
+                    <li><a href="upload.html">Upload Prescription</a></li>
+                    <li><a href="refill.html">Medicine Refill</a></li>
+                    <li><a href="doctor.html">Doctor Consultation</a></li>
+                    <li><a href="health.html">Health Checkups</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+            <p class="disclaimer">Disclaimer: This is not a real pharmacy. For demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+      // Medicine data with reliable image URLs
+const medicineData = {
+    categories: [
+        { id: 'all', name: 'All Medicines', icon: 'fas fa-pills' },
+        { id: 'fever', name: 'Fever & Pain', icon: 'fas fa-temperature-high' },
+        { id: 'allergy', name: 'Allergy & Cold', icon: 'fas fa-wind' },
+        { id: 'digestive', name: 'Digestive Care', icon: 'fas fa-utensils' },
+        { id: 'diabetes', name: 'Diabetes Care', icon: 'fas fa-syringe' },
+        { id: 'heart', name: 'Heart Care', icon: 'fas fa-heartbeat' },
+        { id: 'skincare', name: 'Skin Care', icon: 'fas fa-spa' },
+        { id: 'vitamins', name: 'Vitamins', icon: 'fas fa-capsules' },
+        { id: 'ayurveda', name: 'Ayurveda', icon: 'fas fa-leaf' }
+    ],
+    products: [
+        { 
+            id: 101, 
+            name: "Paracetamol 500mg", 
+            category: "fever", 
+            manufacturer: "Cipla", 
+            price: 25, 
+            originalPrice: 30, 
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNGSEm2uXtHhnNcJmh3avXhPlvMltHeo0dtg&s", 
+            deal: "16% OFF" 
+        },
+        { 
+            id: 102, 
+            name: "Ibuprofen 400mg", 
+            category: "fever", 
+            manufacturer: "Dr. Reddy's", 
+            price: 45, 
+            originalPrice: 50, 
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ80Tpx4efewZk8jFPM7pc9CPOryygO9OCOA&s", 
+            deal: "10% OFF" 
+        },
+        { 
+            id: 103, 
+            name: "Cetirizine 10mg", 
+            category: "allergy", 
+            manufacturer: "Sun Pharma", 
+            price: 35, 
+            originalPrice: 40, 
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmUN3KAMzd7ZB_jjDfhAvaDSo_NLbqVDY53g&s", 
+            deal: "12% OFF" 
+        },
+        { 
+            id: 104, 
+            name: "Omeprazole 20mg", 
+            category: "digestive", 
+            manufacturer: "Lupin", 
+            price: 55, 
+            originalPrice: 65, 
+            image: "https://5.imimg.com/data5/SELLER/Default/2023/4/301946091/YG/IQ/BC/2938236/omeprazole-capsules.jpg", 
+            deal: "15% OFF" 
+        },
+        { 
+            id: 105, 
+            name: "Metformin 500mg", 
+            category: "diabetes", 
+            manufacturer: "USV", 
+            price: 60, 
+            originalPrice: 75, 
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXcFuzLWkPoh02NSlEWuV5B3s50EgHD2Mlng&s", 
+            prescription: true, 
+            deal: "20% OFF" 
+        },
+        { 
+            id: 106, 
+            name: "Atorvastatin 10mg", 
+            category: "heart", 
+            manufacturer: "Torrent", 
+            price: 85, 
+            originalPrice: 100, 
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcIV62vJyhF6C6-1yRO7LFEWMi-di2wK4TUw&s", 
+            prescription: true, 
+            deal: "15% OFF" 
+        },
+        { 
+            id: 107, 
+            name: "Vitamin D3 60K", 
+            category: "vitamins", 
+            manufacturer: "Mankind", 
+            price: 120, 
+            originalPrice: 150, 
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbX2LI7AkEKUCL8_1ysN2SBJB7RRgrBrLtYA&s", 
+            deal: "20% OFF" 
+        },
+        { 
+            id: 108, 
+            name: "Chyawanprash 1kg", 
+            category: "ayurveda", 
+            manufacturer: "Dabur", 
+            price: 250, 
+            originalPrice: 300, 
+            image: "https://www.netmeds.com/images/product-v1/240x240/1121145/dabur_haldi_tablets_60s_free_20s_tablets_1s_686865_0_0.jpg", 
+            deal: "16% OFF" 
+        },
+        { 
+        id: 109, 
+        name: "Azithromycin 500mg", 
+        category: "antibiotic", 
+        manufacturer: "Zydus", 
+        price: 80, 
+        originalPrice: 100, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqzaUUQPs9X3r-xe36IeTDhqJhqN96Yc4GHA&s", 
+        prescription: true,
+        deal: "20% OFF" 
+    },
+    { 
+        id: 110, 
+        name: "Dolo 650mg", 
+        category: "fever", 
+        manufacturer: "Micro Labs", 
+        price: 30, 
+        originalPrice: 35, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm1w7bGDyXDqh9-wv4m7Nqpb340SAH0_m8rg&s", 
+        deal: "14% OFF" 
+    },
+    { 
+        id: 111, 
+        name: "Montelukast 10mg", 
+        category: "asthma", 
+        manufacturer: "Glenmark", 
+        price: 65, 
+        originalPrice: 80, 
+        image: "https://tiimg.tistatic.com/fp/1/007/864/montelukast-sodium-levocetirizine-hydrochloride-tablets-pack-of-15-tablets-544.jpg", 
+        deal: "18% OFF" 
+    },
+    { 
+        id: 112, 
+        name: "Pantoprazole 40mg", 
+        category: "digestive", 
+        manufacturer: "Alkem", 
+        price: 50, 
+        originalPrice: 60, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbWeYFJEhkE-sEjQ-gJqACo3Uu9uo-JF2__g&s", 
+        deal: "16% OFF" 
+    },
+    { 
+        id: 113, 
+        name: "Amlodipine 5mg", 
+        category: "blood pressure", 
+        manufacturer: "Torrent", 
+        price: 40, 
+        originalPrice: 50, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRF12TpqgfN0pDooBVyGFT-mzaIdxKSKhZKg&s", 
+        prescription: true,
+        deal: "20% OFF" 
+    },
+    { 
+        id: 114, 
+        name: "Vitamin B12", 
+        category: "vitamins", 
+        manufacturer: "Himalaya", 
+        price: 95, 
+        originalPrice: 120, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgisTFxxz4lJn2THsh_eYm_ZsmQ6-gAzrUqA&s", 
+        deal: "20% OFF" 
+    },
+    { 
+        id: 115, 
+        name: "Ashwagandha 500mg", 
+        category: "ayurveda", 
+        manufacturer: "Himalaya", 
+        price: 150, 
+        originalPrice: 180, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTN1a8or4cYFUJc5RWv-loa1e-YtfFxUC5Vwg&s", 
+        deal: "16% OFF" 
+    },
+    { 
+        id: 116, 
+        name: "Ciprofloxacin 500mg", 
+        category: "antibiotic", 
+        manufacturer: "Cipla", 
+        price: 70, 
+        originalPrice: 85, 
+        image: "hhttps://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5TQL99zgsrUAXkkC7bYxKHZzWeM8MvO4Pyw&s", 
+        prescription: true,
+        deal: "17% OFF" 
+    },
+    { 
+        id: 117, 
+        name: "Levothyroxine 50mcg", 
+        category: "thyroid", 
+        manufacturer: "Abbott", 
+        price: 55, 
+        originalPrice: 70, 
+        image: "https://5.imimg.com/data5/UL/II/SL/SELLER-1090199/euthyrox-levothyroxine-25-mcg-tablet.jpg", 
+        prescription: true,
+        deal: "21% OFF" 
+    },
+    { 
+        id: 118, 
+        name: "Losartan 50mg", 
+        category: "blood pressure", 
+        manufacturer: "Sun Pharma", 
+        price: 60, 
+        originalPrice: 75, 
+        image: "https://5.imimg.com/data5/SELLER/Default/2022/1/HM/WY/TM/98283251/50mg-losartan-potassium-tablets-ip-500x500.jpeg", 
+        prescription: true,
+        deal: "20% OFF" 
+    },
+    { 
+        id: 119, 
+        name: "Glimiperide 2mg", 
+        category: "diabetes", 
+        manufacturer: "USV", 
+        price: 75, 
+        originalPrice: 90, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsCoiqBU2CHufEivBFP41HcTUwGGsVLlU0SA&s", 
+        prescription: true,
+        deal: "16% OFF" 
+    },
+    { 
+        id: 120, 
+        name: "Multivitamin Tablet", 
+        category: "vitamins", 
+        manufacturer: "Supradyn", 
+        price: 200, 
+        originalPrice: 250, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQv8NNJzRBAIeZZGyvwzEjLTAIM4LhKGKtqtQ&s", 
+        deal: "20% OFF" 
+    },
+    { 
+        id: 121, 
+        name: "Ranitidine 150mg", 
+        category: "digestive", 
+        manufacturer: "GSK", 
+        price: 35, 
+        originalPrice: 45, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4G3K1ly7SNWSy6BFmk2XQUze8xK4bUdxYOA&s", 
+        deal: "22% OFF" 
+    },
+    { 
+        id: 122, 
+        name: "Sertraline 50mg", 
+        category: "mental health", 
+        manufacturer: "Torrent", 
+        price: 90, 
+        originalPrice: 110, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk7MLxwM-N4WT3hrsa-oRErmYmsSZq6vjBZA&s", 
+        prescription: true,
+        deal: "18% OFF" 
+    },
+    { 
+        id: 123, 
+        name: "Telmisartan 40mg", 
+        category: "blood pressure", 
+        manufacturer: "Glenmark", 
+        price: 65, 
+        originalPrice: 80, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfH8NBQkcLnPDhsI_TJdv1w-heN_Kn3w3Isw&s", 
+        prescription: true,
+        deal: "18% OFF" 
+    },
+    { 
+        id: 124, 
+        name: "Domperidone 10mg", 
+        category: "digestive", 
+        manufacturer: "Sun Pharma", 
+        price: 40, 
+        originalPrice: 50, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHf_73gB13RsyQfkgCmI15nMpQSvUQcBVggg&s", 
+        deal: "20% OFF" 
+    },
+    { 
+        id: 125, 
+        name: "Rosuvastatin 10mg", 
+        category: "heart", 
+        manufacturer: "AstraZeneca", 
+        price: 95, 
+        originalPrice: 120, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1k1k0ZzKRsq9jXoOEvS3EhITGf3SpCAT0YA&s", 
+        prescription: true,
+        deal: "20% OFF" 
+    },
+    { 
+        id: 126, 
+        name: "Iron & Folic Acid", 
+        category: "vitamins", 
+        manufacturer: "Mankind", 
+        price: 50, 
+        originalPrice: 65, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ-7dpCHGSok3-1cnA5JLqgY925GZs0MyviA&s", 
+        deal: "23% OFF" 
+    },
+    { 
+        id: 127, 
+        name: "Triphala Churna", 
+        category: "ayurveda", 
+        manufacturer: "Dabur", 
+        price: 120, 
+        originalPrice: 150, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnIx6Emn9EALitK77gA5NC_wvDEqJKX85hbA&s", 
+        deal: "20% OFF" 
+    },
+    { 
+        id: 128, 
+        name: "Clonazepam 0.5mg", 
+        category: "mental health", 
+        manufacturer: "Sun Pharma", 
+        price: 55, 
+        originalPrice: 70, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD958yZ4LzOlpDpEhl0X1jHNKTN41b-N2QhA&s", 
+        prescription: true,
+        deal: "21% OFF" 
+    },
+    { 
+        id: 129, 
+        name: "Cough Syrup", 
+        category: "cold & cough", 
+        manufacturer: "Benadryl", 
+        price: 110, 
+        originalPrice: 140, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScoykqEwaEPxO2IuhNYal_jC9_6j0-RikdTA&s", 
+        deal: "21% OFF" 
+    },
+    { 
+        id: 130, 
+        name: "Paracetamol Suspension", 
+        category: "fever", 
+        manufacturer: "Crocin", 
+        price: 45, 
+        originalPrice: 60, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNEAQA8ws9_de41fCd3iTOa82dOMIDMxO1Bg&s", 
+        deal: "25% OFF" 
+    },
+    { 
+        id: 131, 
+        name: "Amoxicillin 500mg", 
+        category: "antibiotic", 
+        manufacturer: "Alkem", 
+        price: 75, 
+        originalPrice: 95, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyLTYBsDZCVqpLrFPZ3cbim8qvgOQVAKl5ew&s", 
+        prescription: true,
+        deal: "21% OFF" 
+    },
+    { 
+        id: 132, 
+        name: "Vitamin C 500mg", 
+        category: "vitamins", 
+        manufacturer: "Limcee", 
+        price: 60, 
+        originalPrice: 80, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHJazeJiXPdQbE96S-6Lz07_3Oe4wKFe7Lzw&s", 
+        deal: "25% OFF" 
+    },
+    { 
+        id: 133, 
+        name: "Gelusil Tablet", 
+        category: "digestive", 
+        manufacturer: "Pfizer", 
+        price: 25, 
+        originalPrice: 35, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpfBQdE57thTreScODIjpAwju9ZkOoszC81g&s", 
+        deal: "28% OFF" 
+    },
+    { 
+        id: 134, 
+        name: "Diazepam 5mg", 
+        category: "mental health", 
+        manufacturer: "Torrent", 
+        price: 50, 
+        originalPrice: 65, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjfi0CQIvR41fdWH3WWINtjjYpxKrTRviZ_w&s", 
+        prescription: true,
+        deal: "23% OFF" 
+    },
+    { 
+        id: 135, 
+        name: "Liv 52 Syrup", 
+        category: "ayurveda", 
+        manufacturer: "Himalaya", 
+        price: 85, 
+        originalPrice: 110, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtphPRAiF4YUUKsJPeOp1sBTq2wZ04BPxYIg&s", 
+        deal: "22% OFF" 
+    },
+    { 
+        id: 136, 
+        name: "Ofloxacin 200mg", 
+        category: "antibiotic", 
+        manufacturer: "Cipla", 
+        price: 65, 
+        originalPrice: 85, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRgRF-D0MUL_XU_Q6sDxQr0_mRtuoELexpgYw&s", 
+        prescription: true,
+        deal: "23% OFF" 
+    },
+    { 
+        id: 137, 
+        name: "Zincovit Tablet", 
+        category: "vitamins", 
+        manufacturer: "USV", 
+        price: 70, 
+        originalPrice: 90, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsV_Epa2-Ajo-2BI15HXfnxPw2u5R-m0IFAg&s", 
+        deal: "22% OFF" 
+    },
+    { 
+        id: 138, 
+        name: "Digene Tablet", 
+        category: "digestive", 
+        manufacturer: "Abbott", 
+        price: 20, 
+        originalPrice: 30, 
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsXup1LkJFO6h_KqvbVBBOLbXnOcG8IZejNg&s", 
+        deal: "33% OFF" 
+    }
+    ]
+};
+
+// Global variables
+let currentCategory = 'all';
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+// Function to create category card HTML
+function createCategoryCard(category) {
+    const isActive = category.id === currentCategory;
+    return `
+        <a href="#" class="category-card ${isActive ? 'active' : ''}" data-category="${category.id}">
+            <div class="category-icon">
+                <i class="${category.icon}"></i>
+            </div>
+            <h3>${category.name}</h3>
+        </a>
+    `;
+}
+
+// Function to create product card HTML
+function createProductCard(product) {
+    const isInWishlist = wishlist.some(item => item.id === product.id);
+    return `
+        <div class="product-card" data-id="${product.id}" data-category="${product.category}">
+            <div class="product-image">
+                <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/200x200?text=Medicine+Image'">
+                ${product.prescription ? '<span class="prescription-required">Rx</span>' : ''}
+                ${product.deal ? `<span class="deal-badge">${product.deal}</span>` : ''}
+                <button class="add-to-wishlist ${isInWishlist ? 'active' : ''}" data-product-id="${product.id}">
+                    <i class="${isInWishlist ? 'fas' : 'far'} fa-heart"></i>
+                </button>
+            </div>
+            <div class="product-info">
+                <h3>${product.name}</h3>
+                <p class="manufacturer">${product.manufacturer}</p>
+                <p class="price">₹${product.price.toLocaleString('en-IN')}
+                    ${product.originalPrice ? `<span class="original">₹${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+                </p>
+                <button class="add-to-cart" data-product-id="${product.id}">
+                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Function to filter products by category
+function filterProductsByCategory(categoryId) {
+    if (categoryId === 'all') {
+        return medicineData.products;
+    }
+    return medicineData.products.filter(product => product.category === categoryId);
+}
+
+// Function to display products
+function displayProducts(products) {
+    const productsGrid = document.getElementById('products-grid');
+    productsGrid.innerHTML = products.map(createProductCard).join('');
+    
+    // Update section title
+    const category = medicineData.categories.find(c => c.id === currentCategory);
+    document.getElementById('products-section-title').textContent = category ? category.name : 'All Medicines';
+}
+
+// Function to update cart count
+function updateCartCount() {
+    const cartCount = document.querySelector('.cart-count');
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+    
+    if (cartCount) {
+        cartCount.textContent = totalItems;
+    } else {
+        const cartIcon = document.querySelector('.cart-icon');
+        if (cartIcon) {
+            const countBadge = document.createElement('span');
+            countBadge.className = 'cart-count';
+            countBadge.textContent = totalItems;
+            cartIcon.appendChild(countBadge);
+        }
+    }
+    
+    updateCartDropdown();
+}
+
+// Function to update wishlist count
+function updateWishlistCount() {
+    const wishlistCount = document.querySelector('.wishlist-count');
+    
+    if (wishlistCount) {
+        wishlistCount.textContent = wishlist.length;
+    } else {
+        const wishlistIcon = document.querySelector('.heart-icon');
+        if (wishlistIcon) {
+            const countBadge = document.createElement('span');
+            countBadge.className = 'wishlist-count';
+            countBadge.textContent = wishlist.length;
+            wishlistIcon.appendChild(countBadge);
+        }
+    }
+    
+    updateWishlistDropdown();
+}
+
+// Function to update cart dropdown
+function updateCartDropdown() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = `
+            <div class="empty-dropdown">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = '<div class="dropdown-items-container">';
+    cart.forEach((item, index) => {
+        html += `
+            <div class="dropdown-item">
+                <div class="dropdown-item-image">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60x60?text=Product'">
+                </div>
+                <div class="dropdown-item-details">
+                    <h4>${item.name}</h4>
+                    <p class="price">₹${item.price.toLocaleString('en-IN')} × ${item.quantity || 1}</p>
+                </div>
+                <div class="dropdown-item-actions">
+                    <button class="action-btn remove-btn" data-index="${index}" data-type="cart">×</button>
+                </div>
+            </div>
+        `;
+    });
+    
+    // Calculate subtotal
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+    html += `
+        <div class="dropdown-footer">
+            <div class="dropdown-subtotal">
+                <span>Subtotal:</span>
+                <strong>₹${subtotal.toLocaleString('en-IN')}</strong>
+            </div>
+            <a href="cart.html" class="view-cart-btn">View Cart</a>
+        </div>
+    `;
+    
+    cartItemsContainer.innerHTML = html;
+    
+    document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const index = parseInt(button.getAttribute('data-index'));
+            removeFromCart(index);
+        });
+    });
+}
+
+// Function to update wishlist dropdown
+function updateWishlistDropdown() {
+    const wishlistItemsContainer = document.getElementById('wishlist-items');
+    
+    if (wishlist.length === 0) {
+        wishlistItemsContainer.innerHTML = `
+            <div class="empty-dropdown">
+                <i class="far fa-heart"></i>
+                <p>Your wishlist is empty</p>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = '<div class="dropdown-items-container">';
+    wishlist.forEach((item, index) => {
+        html += `
+            <div class="dropdown-item">
+                <div class="dropdown-item-image">
+                    <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60x60?text=Medicine'">
+                </div>
+                <div class="dropdown-item-details">
+                    <h4>${item.name}</h4>
+                    <p class="price">₹${item.price.toLocaleString('en-IN')}</p>
+                </div>
+                <div class="dropdown-item-actions">
+                    <button class="action-btn add-to-cart-btn" data-product-id="${item.id}">+</button>
+                    <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist">×</button>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    html += `
+        <div class="dropdown-footer">
+            <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+        </div>
+    `;
+    wishlistItemsContainer.innerHTML = html;
+    
+    document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const index = parseInt(button.getAttribute('data-index'));
+            removeFromWishlist(index);
+        });
+    });
+    
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const productId = parseInt(button.getAttribute('data-product-id'));
+            addToCart(productId);
+        });
+    });
+}
+
+// Function to add product to cart
+function addToCart(productId) {
+    const product = medicineData.products.find(p => p.id == productId);
+    if (!product) return;
+    
+    if (product.prescription) {
+        showNotification("Prescription required for this medicine. Please upload during checkout.");
+        return;
+    }
+    
+    const existingItem = cart.find(item => item.id == productId);
+    
+    if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+        const productToAdd = {...product, quantity: 1};
+        cart.push(productToAdd);
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    showNotification(`${product.name} added to cart`);
+}
+
+// Function to toggle wishlist item
+function toggleWishlist(productId) {
+    const product = medicineData.products.find(p => p.id == productId);
+    if (!product) return;
+    
+    const existingIndex = wishlist.findIndex(item => item.id == productId);
+    
+    if (existingIndex >= 0) {
+        wishlist.splice(existingIndex, 1);
+        showNotification(`${product.name} removed from wishlist`);
+    } else {
+        wishlist.push(product);
+        showNotification(`${product.name} added to wishlist`);
+    }
+    
+    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+    updateWishlistCount();
+    updateWishlistDropdown();
+    
+    // Update heart icon state without recreating the entire card
+    const productCard = document.querySelector(`.product-card[data-id="${productId}"]`);
+    if (productCard) {
+        const heartButton = productCard.querySelector('.add-to-wishlist');
+        const heartIcon = heartButton.querySelector('i');
+        
+        heartButton.classList.toggle('active');
+        heartIcon.classList.toggle('far');
+        heartIcon.classList.toggle('fas');
+    }
+}
+
+// Function to remove from wishlist
+function removeFromWishlist(index) {
+    if (index >= 0 && index < wishlist.length) {
+        const product = wishlist[index];
+        wishlist.splice(index, 1);
+        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        updateWishlistCount();
+        updateWishlistDropdown();
+        
+        // Update heart icon in product card
+        const productCard = document.querySelector(`.product-card[data-id="${product.id}"]`);
+        if (productCard) {
+            const heartButton = productCard.querySelector('.add-to-wishlist');
+            const heartIcon = heartButton.querySelector('i');
+            
+            heartButton.classList.remove('active');
+            heartIcon.classList.remove('fas');
+            heartIcon.classList.add('far');
+        }
+        
+        showNotification(`${product.name} removed from wishlist`);
+    }
+}
+
+// Function to remove from cart
+function removeFromCart(index) {
+    if (index >= 0 && index < cart.length) {
+        const product = cart[index];
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount();
+        updateCartDropdown();
+        showNotification(`${product.name} removed from cart`);
+    }
+}
+
+// Function to show notification
+function showNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
+}
+
+// Close other dropdowns when one is opened
+function closeOtherDropdowns(currentToggle) {
+    const toggles = ['search-toggle', 'wishlist-toggle', 'cart-toggle'];
+    toggles.forEach(toggleId => {
+        if (toggleId !== currentToggle) {
+            const toggle = document.getElementById(toggleId);
+            if (toggle && toggle.checked) {
+                toggle.checked = false;
+                // Dispatch change event to trigger CSS changes
+                toggle.dispatchEvent(new Event('change'));
+            }
+        }
+    });
+}
+
+// Initialize page
+document.addEventListener('DOMContentLoaded', () => {
+    // Load categories
+    document.getElementById('categories-grid').innerHTML = medicineData.categories.map(createCategoryCard).join('');
+    
+    // Load initial products
+    displayProducts(filterProductsByCategory(currentCategory));
+    
+    // Initialize cart and wishlist counts
+    updateCartCount();
+    updateWishlistCount();
+    
+    // Category click handler
+    document.getElementById('categories-grid').addEventListener('click', (e) => {
+        const categoryCard = e.target.closest('.category-card');
+        if (categoryCard) {
+            e.preventDefault();
+            currentCategory = categoryCard.getAttribute('data-category');
+            
+            // Update active state
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            categoryCard.classList.add('active');
+            
+            // Display products for selected category
+            displayProducts(filterProductsByCategory(currentCategory));
+        }
+    });
+    
+    // Add to Cart listener
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.add-to-cart')) {
+            const productId = e.target.closest('.add-to-cart').getAttribute('data-product-id');
+            addToCart(productId);
+        }
+        
+        if (e.target.closest('.add-to-wishlist') || e.target.classList.contains('fa-heart')) {
+            const productId = e.target.closest('.add-to-wishlist').getAttribute('data-product-id');
+            toggleWishlist(productId);
+        }
+    });
+    
+    // Search functionality
+    document.getElementById('search-button').addEventListener('click', () => {
+        const searchTerm = document.getElementById('search-input').value.trim().toLowerCase();
+        if (!searchTerm) return;
+        
+        const results = medicineData.products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) || 
+            product.manufacturer.toLowerCase().includes(searchTerm)
+        );
+        
+        if (results.length === 0) {
+            showNotification('No medicines found matching your search');
+        } else {
+            displayProducts(results);
+            document.getElementById('products-section-title').textContent = `Search Results for "${searchTerm}"`;
+            document.getElementById('products-section-title').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        document.getElementById('search-toggle').checked = false;
+    });
+    
+    // Allow pressing Enter in search input
+    document.getElementById('search-input').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            document.getElementById('search-button').click();
+        }
+    });
+    
+    // Close other dropdowns when one is opened
+    document.querySelectorAll('.icon-toggle').forEach(toggle => {
+        toggle.addEventListener('change', function() {
+            if (this.checked) {
+                closeOtherDropdowns(this.id);
+            }
+        });
+    });
+});
+    </script>
+</body>
+</html>

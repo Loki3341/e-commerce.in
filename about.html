@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About LuxeMarket | Premium Shopping Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="about.css">
+    <link rel="stylesheet" href="font.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shopping</a>
+                <a href="medice.html">Medicines</a>
+                <a href="groceries.html">Groceries</a>
+                <a href="about.html" class="active">About</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <p style="padding: 15px; text-align: center;">Your wishlist is empty</p>
+                        </div>
+                        <a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a>
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <p style="padding: 15px; text-align: center;">Your cart is empty</p>
+                        </div>
+                        <a href="cart.html" class="view-cart-btn">View Cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <main>
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>Our Story</h1>
+                <p>Discover the passion behind LuxeMarket and our commitment to bringing you the finest products</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="about-story">
+            <div class="section-container">
+                <h2 class="section-title">Who We Are</h2>
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h3>Redefining Luxury Shopping</h3>
+                        <p>Founded in 2015, LuxeMarket began as a small boutique with a big vision: to make premium products accessible without compromising on quality or service. What started as a single store has grown into a global destination for discerning shoppers.</p>
+                        <p>Our journey has been guided by one simple principle - every product we offer must meet our exacting standards of quality, craftsmanship, and design. We personally vet every item in our collection to ensure it meets these criteria.</p>
+                        <p>Today, we're proud to serve customers in over 50 countries, but we've never lost sight of our boutique origins and the personal touch that sets us apart.</p>
+                    </div>
+                    <div class="story-image">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="LuxeMarket Store">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values Section -->
+        <section class="values-section">
+            <div class="section-container">
+                <h2 class="section-title">Our Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h3>Quality First</h3>
+                        <p>We source only the finest materials and work with master craftsmen to deliver products that stand the test of time.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Exceptional Service</h3>
+                        <p>Our dedicated team provides personalized attention to ensure your complete satisfaction with every purchase.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Sustainable Luxury</h3>
+                        <p>We're committed to ethical sourcing and sustainable practices that respect both people and the planet.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Innovative Design</h3>
+                        <p>We constantly seek out fresh perspectives and innovative designs that push boundaries while honoring tradition.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Team Section -->
+        <section class="team-section">
+            <div class="section-container">
+                <h2 class="section-title">Meet Our Founders</h2>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Alexandra Chen">
+                        </div>
+                        <div class="member-info">
+                            <h3>Alexandra Chen</h3>
+                            <p>Co-Founder & CEO</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="James Rodriguez">
+                        </div>
+                        <div class="member-info">
+                            <h3>James Rodriguez</h3>
+                            <p>Co-Founder & Creative Director</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="team-member">
+                        <div class="member-image">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" alt="Sarah Johnson">
+                        </div>
+                        <div class="member-info">
+                            <h3>Sarah Johnson</h3>
+                            <p>Head of Product Curation</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your trusted online pharmacy with genuine medicines and healthcare products.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shopping</a></li>
+                    <li><a href="medice.html">Medicines</a></li>
+                    <li><a href="groceries.html">Groceries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="delivery.html">Delivery Information</a></li>
+                    <li><a href="return.html">Returns Policy</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            <p class="disclaimer">Disclaimer: This is not a real pharmacy. For demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        
+    
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize cart and wishlist from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            
+            // Get toggle elements
+            const searchToggle = document.getElementById('search-toggle');
+            const wishlistToggle = document.getElementById('wishlist-toggle');
+            const cartToggle = document.getElementById('cart-toggle');
+            
+            // Update counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Initialize dropdowns if already open
+            initializeDropdowns();
+            
+            // Set up event listeners
+            setupDropdownToggleListeners();
+            
+            // Search functionality
+            setupSearch();
+    
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    cartCount.textContent = itemCount;
+                }
+            }
+    
+            function updateWishlistCount() {
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlistCount) {
+                    wishlistCount.textContent = wishlist.length;
+                }
+            }
+    
+            function initializeDropdowns() {
+                if (cartToggle.checked) displayCartItems();
+                if (wishlistToggle.checked) displayWishlistItems();
+                if (searchToggle.checked) setupSearch();
+            }
+    
+            function setupDropdownToggleListeners() {
+                // Close other dropdowns when one is opened
+                const toggles = [searchToggle, wishlistToggle, cartToggle];
+                
+                toggles.forEach(toggle => {
+                    toggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            // Close other dropdowns
+                            toggles.forEach(t => {
+                                if (t !== this && t.checked) {
+                                    t.checked = false;
+                                    // Trigger change event manually if needed
+                                    t.dispatchEvent(new Event('change'));
+                                }
+                            });
+                            
+                            // Load content for the opened dropdown
+                            if (this === cartToggle) displayCartItems();
+                            else if (this === wishlistToggle) displayWishlistItems();
+                        }
+                    });
+                });
+            }
+    
+            function setupSearch() {
+                const searchButton = document.getElementById('search-button');
+                if (searchButton) {
+                    searchButton.addEventListener('click', function() {
+                        const searchTerm = document.getElementById('search-input').value.trim();
+                        if (searchTerm) {
+                            // Implement your search functionality here
+                            // For example: window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+                            showToast(`Searching for: ${searchTerm}`);
+                        }
+                    });
+                    
+                    // Allow search on Enter key
+                    document.getElementById('search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            searchButton.click();
+                        }
+                    });
+                }
+            }
+    
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your cart is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                cart.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>${item.quantity || 1} x ₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="cart" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Calculate subtotal
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                html += `
+                    <div class="dropdown-subtotal">
+                        <p>Subtotal: <strong>₹${subtotal.toFixed(2)}</strong></p>
+                    </div>
+                `;
+                html += '</div>';
+                
+                cartItemsContainer.innerHTML = html;
+    
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        displayCartItems();
+                        showToast('Item removed from cart');
+                    });
+                });
+            }
+    
+            function displayWishlistItems() {
+                const wishlistItemsContainer = document.getElementById('wishlist-items');
+                if (wishlist.length === 0) {
+                    wishlistItemsContainer.innerHTML = '<p style="padding: 15px; text-align: center;">Your wishlist is empty</p>';
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                wishlist.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image || 'https://via.placeholder.com/50'}" alt="${item.name}">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p>₹${item.price.toFixed(2)}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn add-to-cart-btn" data-index="${index}" title="Add to Cart">+</button>
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist" title="Remove">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                
+                wishlistItemsContainer.innerHTML = html;
+    
+                // Add event listeners to buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        
+                        // Check if item already exists in cart
+                        const existingItem = cart.find(cartItem => cartItem.id === item.id);
+                        
+                        if (existingItem) {
+                            existingItem.quantity = (existingItem.quantity || 1) + 1;
+                        } else {
+                            cart.push({...item, quantity: 1});
+                        }
+                        
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartCount();
+                        showToast(`${item.name} added to cart!`);
+                    });
+                });
+                
+                document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        const item = wishlist[index];
+                        wishlist.splice(index, 1);
+                        localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                        updateWishlistCount();
+                        displayWishlistItems();
+                        showToast(`${item.name} removed from wishlist`);
+                    });
+                });
+            }
+    
+            function showToast(message) {
+                const toast = document.createElement('div');
+                toast.style.position = 'fixed';
+                toast.style.bottom = '20px';
+                toast.style.right = '20px';
+                toast.style.backgroundColor = '#4F46E5';
+                toast.style.color = 'white';
+                toast.style.padding = '10px 20px';
+                toast.style.borderRadius = '4px';
+                toast.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
+                toast.style.zIndex = '10000';
+                toast.style.transition = 'all 0.3s';
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(20px)';
+                toast.textContent = message;
+                
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '1';
+                    toast.style.transform = 'translateY(0)';
+                }, 10);
+                
+                setTimeout(() => {
+                    toast.style.opacity = '0';
+                    toast.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+
+    </script>
+</body>
+</html>

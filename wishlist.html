@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist - LuxeMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="wishlist.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            
+            <div class="logo">LuxeMarket</div>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="about.html">About</a>
+                <a href="orders.html">Orders</a>
+                <a href="wishlist.html" class="active">Wishlist</a>
+            </div>
+
+            <div class="nav-icons">
+                <!-- Search Icon with Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="search-toggle" class="icon-toggle">
+                    <label for="search-toggle" class="icon search-icon"></label>
+                    <div class="search-dropdown">
+                        <h3>Search Products</h3>
+                        <input type="text" placeholder="Search products..." id="search-input">
+                        <button id="search-button">Search</button>
+                    </div>
+                </div>
+                
+                <!-- Wishlist Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="wishlist-toggle" class="icon-toggle">
+                    <label for="wishlist-toggle" class="icon heart-icon"><span class="wishlist-count">0</span></label>
+                    <div class="wishlist-dropdown">
+                        <h3>My Wishlist</h3>
+                        <div id="wishlist-items">
+                            <div class="empty-dropdown">
+                                <i class="far fa-heart"></i>
+                                <p>Your wishlist is empty</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Dropdown -->
+                <div class="icon-wrapper">
+                    <input type="checkbox" id="cart-toggle" class="icon-toggle">
+                    <label for="cart-toggle" class="icon cart-icon"><span class="cart-count">0</span></label>
+                    <div class="cart-dropdown">
+                        <h3>Shopping Cart</h3>
+                        <div id="cart-items">
+                            <div class="empty-dropdown">
+                                <i class="fas fa-shopping-cart"></i>
+                                <p>Your cart is empty</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <div class="wishlist-container">
+            <div class="page-header">
+                <h1>My Wishlist</h1>
+                <p>Your saved items for later</p>
+            </div>
+            
+            <div class="wishlist-grid" id="wishlist-items-container">
+                <!-- Wishlist items will be dynamically inserted here -->
+                <div class="empty-wishlist">
+                    <i class="far fa-heart"></i>
+                    <h2>Your wishlist is empty</h2>
+                    <p>You haven't saved any items to your wishlist yet</p>
+                    <a href="shop.html" class="shop-btn">Start Shopping</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Us</h3>
+                <p>Your trusted online pharmacy with genuine medicines and healthcare products.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="medice.html">Medicines</a></li>
+                    <li><a href="groceries.html">Groceries</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="contactUs.html">Contact Us</a></li>
+                    <li><a href="delivery.html">Delivery Information</a></li>
+                    <li><a href="return.html">Returns Policy</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa" title="Visa"></i>
+                    <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                    <i class="fab fa-cc-amex" title="American Express"></i>
+                    <i class="fab fa-cc-paypal" title="PayPal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 LuxeMarket. All rights reserved. | <a href="privacypolicy.html">Privacy Policy</a> | <a href="termsandcoditions.html">Terms of Service</a></p>
+            <p class="disclaimer">Disclaimer: This is not a real pharmacy. For demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Sample product data (would normally come from your database)
+        const products = [
+            {
+                id: 1,
+                name: "Premium Leather Wallet",
+                price: 5579.99,
+                originalPrice: 5999.99,
+                image: "https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&q=80&w=2000",
+                deal: "7% OFF"
+            },
+            {
+                id: 2,
+                name: "Minimalist Watch",
+                price: 5199.99,
+                originalPrice: 5499.99,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&q=80&w=2000",
+                deal: "5% OFF"
+            },
+            {
+                id: 3,
+                name: "Classic White Sneakers",
+                price: 4129.99,
+                originalPrice: 4599.99,
+                image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=2000",
+                deal: "10% OFF"
+            },
+            {
+                id: 4,
+                name: "Designer Sunglasses",
+                price: 3159.99,
+                originalPrice: 3599.99,
+                image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=2000",
+                deal: "12% OFF"
+            }
+        ];
+
+        // Initialize wishlist and cart from localStorage or create empty arrays
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Update counts
+            updateCartCount();
+            updateWishlistCount();
+            
+            // Render wishlist items
+            renderWishlist();
+            
+            // Set up event listeners for dropdown toggles
+            setupDropdownToggleListeners();
+            
+            // Search functionality
+            setupSearch();
+            
+            // Add some sample items to wishlist if empty (for demo purposes)
+            if (wishlist.length === 0) {
+                // Add first two products to wishlist for demo
+                wishlist = products.slice(0, 2);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlistCount();
+                renderWishlist();
+            }
+    
+            function updateCartCount() {
+                const cartCount = document.querySelector('.cart-count');
+                if (cartCount) {
+                    const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+                    cartCount.textContent = itemCount;
+                }
+            }
+    
+            function updateWishlistCount() {
+                const wishlistCount = document.querySelector('.wishlist-count');
+                if (wishlistCount) {
+                    wishlistCount.textContent = wishlist.length;
+                }
+            }
+    
+            function setupDropdownToggleListeners() {
+                const cartToggle = document.getElementById('cart-toggle');
+                const wishlistToggle = document.getElementById('wishlist-toggle');
+                const searchToggle = document.getElementById('search-toggle');
+                
+                if (cartToggle) {
+                    cartToggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            displayCartItems();
+                        }
+                    });
+                }
+                
+                if (wishlistToggle) {
+                    wishlistToggle.addEventListener('change', function() {
+                        if (this.checked) {
+                            displayWishlistItems();
+                        }
+                    });
+                }
+                
+                // Close dropdowns when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.icon-wrapper') && !e.target.closest('.search-dropdown') && !e.target.closest('.wishlist-dropdown') && !e.target.closest('.cart-dropdown')) {
+                        if (cartToggle) cartToggle.checked = false;
+                        if (wishlistToggle) wishlistToggle.checked = false;
+                        if (searchToggle) searchToggle.checked = false;
+                    }
+                });
+            }
+    
+            function setupSearch() {
+                const searchButton = document.getElementById('search-button');
+                if (searchButton) {
+                    searchButton.addEventListener('click', function() {
+                        const searchTerm = document.getElementById('search-input').value.trim();
+                        if (searchTerm) {
+                            showNotification(`Searching for: ${searchTerm}`);
+                        }
+                    });
+                    
+                    // Allow search on Enter key
+                    document.getElementById('search-input').addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            searchButton.click();
+                        }
+                    });
+                }
+            }
+    
+            function displayCartItems() {
+                const cartItemsContainer = document.getElementById('cart-items');
+                if (!cartItemsContainer) return;
+                
+                if (cart.length === 0) {
+                    cartItemsContainer.innerHTML = `
+                        <div class="empty-dropdown">
+                            <i class="fas fa-shopping-cart"></i>
+                            <p>Your cart is empty</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                cart.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60x60?text=Product'">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p class="price">₹${item.price.toLocaleString('en-IN')} × ${item.quantity || 1}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="cart">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // Calculate subtotal
+                const subtotal = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+                html += `
+                    <div class="dropdown-footer">
+                        <div class="dropdown-subtotal">
+                            <span>Subtotal:</span>
+                            <strong>₹${subtotal.toLocaleString('en-IN')}</strong>
+                        </div>
+                        <a href="cart.html" class="view-cart-btn">View Cart</a>
+                    </div>
+                `;
+                
+                cartItemsContainer.innerHTML = html;
+                
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn[data-type="cart"]').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const index = parseInt(button.getAttribute('data-index'));
+                        removeFromCart(index);
+                    });
+                });
+            }
+    
+            function displayWishlistItems() {
+                const wishlistItemsContainer = document.getElementById('wishlist-items');
+                if (!wishlistItemsContainer) return;
+                
+                if (wishlist.length === 0) {
+                    wishlistItemsContainer.innerHTML = `
+                        <div class="empty-dropdown">
+                            <i class="far fa-heart"></i>
+                            <p>Your wishlist is empty</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '<div class="dropdown-items-container">';
+                wishlist.forEach((item, index) => {
+                    html += `
+                        <div class="dropdown-item">
+                            <div class="dropdown-item-image">
+                                <img src="${item.image}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/60x60?text=Product'">
+                            </div>
+                            <div class="dropdown-item-details">
+                                <h4>${item.name}</h4>
+                                <p class="price">₹${item.price.toLocaleString('en-IN')}</p>
+                            </div>
+                            <div class="dropdown-item-actions">
+                                <button class="action-btn add-to-cart-btn" data-product-id="${item.id}">+</button>
+                                <button class="action-btn remove-btn" data-index="${index}" data-type="wishlist">×</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+                html += `<div class="dropdown-footer"><a href="wishlist.html" class="view-wishlist-btn">View Full Wishlist</a></div>`;
+                wishlistItemsContainer.innerHTML = html;
+                
+                document.querySelectorAll('.remove-btn[data-type="wishlist"]').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const index = parseInt(button.getAttribute('data-index'));
+                        removeFromWishlist(index);
+                    });
+                });
+                
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const productId = parseInt(button.getAttribute('data-product-id'));
+                        addToCart(productId);
+                        showNotification('Item added to cart');
+                    });
+                });
+            }
+    
+            function renderWishlist() {
+                const wishlistContainer = document.getElementById('wishlist-items-container');
+                if (!wishlistContainer) return;
+                
+                if (wishlist.length === 0) {
+                    wishlistContainer.innerHTML = `
+                        <div class="empty-wishlist">
+                            <i class="far fa-heart"></i>
+                            <h2>Your wishlist is empty</h2>
+                            <p>You haven't saved any items to your wishlist yet</p>
+                            <a href="shop.html" class="shop-btn">Start Shopping</a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '';
+                wishlist.forEach(item => {
+                    const product = products.find(p => p.id === item.id) || item;
+                    html += `
+                        <div class="wishlist-item" data-product-id="${product.id}">
+                            <div class="wishlist-item-image">
+                                <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/200x200?text=Product+Image'">
+                                <div class="wishlist-item-actions">
+                                    <button class="remove-btn" data-product-id="${product.id}" title="Remove from wishlist">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+                                    <button class="move-to-cart-btn" data-product-id="${product.id}" title="Move to cart">
+                                        <i class="fas fa-cart-arrow-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="wishlist-item-details">
+                                <h3 class="wishlist-item-title">${product.name}</h3>
+                                <p class="wishlist-item-price">₹${product.price.toLocaleString('en-IN')}</p>
+                                <button class="add-to-cart-btn" data-product-id="${product.id}">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                wishlistContainer.innerHTML = html;
+                
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-product-id'));
+                        removeFromWishlistById(productId);
+                    });
+                });
+                
+                // Add event listeners to add to cart buttons
+                document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-product-id'));
+                        addToCart(productId);
+                    });
+                });
+                
+                // Add event listeners to move to cart buttons
+                document.querySelectorAll('.move-to-cart-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const productId = parseInt(this.getAttribute('data-product-id'));
+                        moveToCart(productId);
+                    });
+                });
+            }
+
+            function addToCart(productId) {
+                const product = products.find(p => p.id === productId) || 
+                              wishlist.find(p => p.id === productId);
+                if (!product) return;
+                
+                // Check if already in cart
+                const existingItem = cart.find(item => item.id === productId);
+                
+                if (existingItem) {
+                    existingItem.quantity = (existingItem.quantity || 1) + 1;
+                } else {
+                    cart.push({...product, quantity: 1});
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                displayCartItems();
+                
+                // Show notification
+                showNotification(`${product.name} added to cart`);
+            }
+
+            function moveToCart(productId) {
+                addToCart(productId);
+                removeFromWishlistById(productId);
+            }
+
+            function removeFromWishlistById(productId) {
+                const product = wishlist.find(p => p.id === productId);
+                wishlist = wishlist.filter(item => item.id !== productId);
+                localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                updateWishlistCount();
+                displayWishlistItems();
+                renderWishlist();
+                
+                // Show notification
+                if (product) {
+                    showNotification(`${product.name} removed from wishlist`);
+                }
+            }
+
+            function removeFromWishlist(index) {
+                if (index >= 0 && index < wishlist.length) {
+                    const product = wishlist[index];
+                    wishlist.splice(index, 1);
+                    localStorage.setItem('wishlist', JSON.stringify(wishlist));
+                    updateWishlistCount();
+                    displayWishlistItems();
+                    renderWishlist();
+                    
+                    showNotification(`${product.name} removed from wishlist`);
+                }
+            }
+
+            function removeFromCart(index) {
+                if (index >= 0 && index < cart.length) {
+                    const product = cart[index];
+                    cart.splice(index, 1);
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    updateCartCount();
+                    displayCartItems();
+                    showNotification(`${product.name} removed from cart`);
+                }
+            }
+
+            function showNotification(message) {
+                const toast = document.createElement('div');
+                toast.className = 'notification';
+                toast.textContent = message;
+                document.body.appendChild(toast);
+                
+                setTimeout(() => {
+                    toast.classList.add('show');
+                }, 10);
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(toast);
+                    }, 300);
+                }, 3000);
+            }
+        });
+        // Close other dropdowns when one opens
+function setupDropdownToggleListeners() {
+    const toggles = {
+        cart: document.getElementById('cart-toggle'),
+        wishlist: document.getElementById('wishlist-toggle'),
+        search: document.getElementById('search-toggle')
+    };
+
+    // Function to close all dropdowns except the one specified
+    const closeOtherDropdowns = (currentKey) => {
+        Object.keys(toggles).forEach(key => {
+            if (key !== currentKey && toggles[key]) {
+                toggles[key].checked = false;
+                // Trigger change event manually if needed
+                toggles[key].dispatchEvent(new Event('change'));
+            }
+        });
+    };
+
+    Object.keys(toggles).forEach(key => {
+        if (toggles[key]) {
+            toggles[key].addEventListener('change', function(e) {
+                // Prevent event from closing the dropdown immediately
+                e.stopPropagation();
+                
+                if (this.checked) {
+                    closeOtherDropdowns(key);
+                    
+                    // Update the display
+                    if (key === 'cart') displayCartItems();
+                    if (key === 'wishlist') displayWishlistItems();
+                }
+            });
+
+            // Also handle click to prevent immediate closing
+            toggles[key].addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function() {
+        Object.keys(toggles).forEach(key => {
+            if (toggles[key]) {
+                toggles[key].checked = false;
+            }
+        });
+    });
+
+    // Prevent dropdown content from closing when clicking inside
+    document.querySelectorAll('.search-dropdown, .wishlist-dropdown, .cart-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    });
+}
+    </script>
+</body>
+</html>
